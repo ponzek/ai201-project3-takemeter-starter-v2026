@@ -55,9 +55,18 @@ whether you hit them:
 
 <!-- Your criterion. It must name a number. -->
 
+Overall accuracy is at least 0.70 on the held-out set, on each of the
+three seeds.
+
 
 
 **Why this target:**
+
+I hoped for about 0.80, but I'm setting the floor at 0.70 to leave room for
+doubt. `vent` is an emotional label and tone is hard to read from text alone,
+so it will blur into the other labels. A random guesser on four labels gets
+about 25%, so 0.70 is well above chance, and it has to hold on all three
+seeds, not just the best one.
 
 
 
@@ -67,9 +76,17 @@ whether you hit them:
 
 <!-- Your criterion. -->
 
+Each of `analysis`, `vent` and `question` has an F1 of at least 0.60 on the
+held-out set, on each of the three seeds.
+
 
 
 **Why this target:**
+
+Chance on four labels is about 25%, so 0.60 is more than double that. It's
+lower than my 0.70 overall target because the labels aren't equally easy:
+`vent` is emotional and blurs into the others, so I expect it to be my
+weakest of the three.
 
 
 
@@ -79,9 +96,18 @@ whether you hit them:
 
 <!-- Your criterion. -->
 
+`hot_take` has an F1 of at least 0.30 on the held-out set, on each of the
+three seeds.
+
 
 
 **Why this target:**
+
+`hot_take` is my thinnest label. It was rare in my 40-post reading sample, so
+only a handful of examples will land in the test split, and its score will
+jump a lot between seeds. That's why this target is much looser than the one
+for the other labels. I know 0.30 is close to chance (about 25%), so it only
+says the model learned something.
 
 
 
@@ -91,9 +117,16 @@ whether you hit them:
 
 <!-- Your criterion. -->
 
+No label holds more than 60% of my 200 labeled posts.
+
 
 
 **Why this target:**
+
+The brief's hard cap is 70%, but a model that always guesses a label holding
+70% of the data already scores 0.70, which is my overall accuracy target. At
+60%, always guessing the biggest label scores 0.60, below my target, so
+hitting 0.70 means the model learned more than the most common label.
 
 
 
@@ -103,9 +136,16 @@ whether you hit them:
 
 <!-- Your criterion. -->
 
+When I relabel 20 of my posts a week later without looking at my first
+labels, at least 80% match.
+
 
 
 **Why this target:**
+
+In my own stress tests I matched my intended labels on about 6 to 7 of 8
+posts (75-88%), mostly missing on boundary cases. The model can't be
+expected to be more consistent than I am, so 80% is about where I landed.
 
 
 
