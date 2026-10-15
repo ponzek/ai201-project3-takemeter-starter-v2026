@@ -109,6 +109,11 @@ jump a lot between seeds. That's why this target is much looser than the one
 for the other labels. I know 0.30 is close to chance (about 25%), so it only
 says the model learned something.
 
+*Note added 15 Oct 2026, after the first run (original text above unchanged):
+`hot_take` ended up at 50 of 225 posts (22%), about the same as `analysis`,
+so it is no longer my thinnest label. `vent` is (42 posts, 6 in the test
+split). The 0.30 target is unchanged.*
+
 
 
 ---
@@ -118,6 +123,9 @@ says the model learned something.
 <!-- Your criterion. -->
 
 No label holds more than 60% of my 200 labeled posts.
+
+*Note added 15 Oct 2026 (original text above unchanged): the final dataset
+has 225 posts, and the largest label, `question`, holds 34%.*
 
 
 

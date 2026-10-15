@@ -59,7 +59,8 @@ sample, and each is something I can point at in the text):
 3. **Reasoning or venting.** Does the post give a because/therefore, or mainly
    express a feeling (e.g. "What the fuck has happened to this profession?")?
 
-Mod megathreads (resume advice, salary sharing) are excluded from the data.
+Most mod megathreads (resume advice, salary sharing) are excluded from the
+data. Two were labelled and kept by mistake.
 
 
 
