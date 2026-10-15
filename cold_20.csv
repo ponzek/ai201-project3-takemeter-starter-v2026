@@ -1,0 +1,156 @@
+text,label,note
+"A good story for a change in morale
+
+I read horror stories here everyday (and many of them have merit and I'm not bringing them down) but, for what is worth I wanted to share my ""feel good"" story.
+ I have 2 YOE (at a consultancy company) and an average university degree in CS, but I just signed an offer as a Full Stack Software Engineer for a big Swiss company. with full relocation support, visa sponsorship, and top of the market compensation.
+ It definitely wasn't all sunshine and rainbows. The search took nearly a year, hundreds of applications, and multiple rejections along the way (including a dream Google job, an NVIDIA interview and a few other big names).
+ I really dislike the current shift toward AI-heavy workflows (honestly, I find it boring and miserable. I'd smash an ""undo LLM"" button in a heartbeat if it existed). But work is still out there, and landing a solid role is still possible.
+ stay strong out there, and best of luck to everyone.
+ Edit: Tried my best to fix the english.",analysis,cold
+"Nobody welcomed me on my first day. Is this normal?
+
+I started a new job today, and I’m honestly confused. This morning, I picked up my laptop with IT, then went back home. Since then, I’ve had no onboarding, no training, no meetings, and no tasks. I messaged my team lead on Teams, but I haven’t received a reply.
+ I spent the day reading HR documents and browsing the company intranet, but I still have no idea what I’m supposed to be doing. I’m not even added to any Teams channels, and I don’t know who my teammates are. I only found my team lead’s name by chance.
+ I started at 8:00 a.m., and it’s now 3:00 p.m. with complete silence.
+ Is this normal? What would you do?
+ Edit 1: I got a reply from HR telling me to contact the manager I already messaged twice… I still haven’t received a response. I don’t even have my development environment set up yet.
+ Edit 2: I found another job. The organization was so disorganized, and everyone seemed to hate their job. It was definitely a red flag.",analysis,cold
+"Am I crazy to want to leave tech?
+
+I feel like everything I loved about the job is gone. I’m an engineer with a bit over 2 years full time experience, making ~140k at a really comfortable and easy job. My manager, culture, and teammates are all great. The work is easy (thanks to Claude), but I have lost all joy for it. 
+ Because of AI, I literally do not have to do anything anymore except: prompt, read, prompt, repeat. Some days, I don’t do more than 10 minutes of work. The satisfaction I got (not even that long ago) from writing something, testing it, and seeing it work has disappeared. The AI can do it 10x as fast (and now as well) as me. I’m starting to feel like my value as an engineer and as a human being is fading. Also, there’s no way my mental ability is staying intact. If AI disappears tomorrow I’d have no clue how to do my job.
+ I’m thinking of switching to something more real: EMS, policing, fire. Something where I don’t have to interact with AI and where my work doesn’t feel meaningless. Also, I’ve always loved interacting with people and genuinely despise sitting at a desk and working silently. 
+ I told my (immigrant) parents about this and they are extremely upset with me. They say I should just stick it out and continue. For them, doing something “smart” matters more than happiness. In my opinion, being smart won’t be the advantage it used to be in 5 years. 
+ What do you think? 
+ Note: I also have over $320k saved because I knew when I started working in tech that I wouldn’t want to do it forever, I just didn’t know it would be this quick.",vent,cold
+"What kind of 401k company match do you guys get?
+
+If we put in up to 5% then we get up to a 3.5% match.",analysis,cold
+"Company conducting paper exams on campus for SWE roles. Thoughts?
+
+I'm currently doing my master's in CS. I received this in my uni email:
+  ""This year, Old Mission is moving away from online interviews (for our Software Engineer track only). All first-round sessions will be conducted fully in-person: a 50-minute proctored paper test on campus. Candidates who successfully complete this stage will be invited to in-person interviews the very next day on campus""
+ ""Interviews will take between 2 - 2.5 hours on [date] or [date] and could include coding exercises and/or Q&A discussions.""
+  I'm curious what the community thinks and whether or not they would take this opportunity.",hot_take,cold
+"Am I Going to Fall Behind in Tech if I Only Code at Work?
+
+I'm a junior developer (I did a 7–8 month internship and have been working full-time for 2 months). My senior developer writes code or builds things even after work, but I don't do anything work-related after hours. I just chill and sleep.
+ Should I be concerned about that? Because, honestly, I feel like I have a job now, but if I continue like this, I'll fall behind on technology.",question,cold
+"Why am I working more if AI was supposed to make coding easier?
+
+I have over nine years of experience in ML and have always worked hard to keep up with the industry, but for the past year and a half, I’ve been working to the point of burnout.
+ Over the last year or so i am and most of my friends and colleagues are working 10–12 hours a day, six days a week as companies have shifted to being ""AI-first"" or ""AI-native,"" it is absolutely contrary to the claim that AI would make developers' lives easier and cut down on work time—the exact opposite is happening. 
+ This is happening partly because we constantly have to learn new AI-related development tools, and partly because management pressures us to speed things up. Of course, no one can say no; we’ve already been through one round of layoffs and are expecting another—and I don’t need to tell you how hard it is to find a job right now. So, people are desperately clinging to their jobs and grinding away late into the night, terrified of falling behind the market or underperforming and getting fired.
+ Ultimately I has a feeling this productivity boost has less to do with AI but more with a overtime. Is it like this for everyone, or did I just get unlucky?",hot_take,cold
+"Would you take this offer?
+
+I currently make $134k + $15k bonus (if I meet expectations in my performance review) in a HCOL area. We currently have to go in 3x per week, and I have a good manager and team. This is my first job, and I’ve been here for about 3 years and am not learning anything.
+ I recently interviewed for a company that is fully remote, and the recruiter had said I can expect high 150s -> 160s base salary plus equity. This is a company that has been around since the mid 2000s. I haven’t seen any info about large engineering layoffs in the past. The culture seems great and I enjoyed meeting everyone in my interviews.
+ Part of me thinks this is an obvious choice if I want to grow in my career, but I’m apprehensive given the state of the market and worried I’ll be committing career suicide. I’m 27 years old and mostly worried about how little I’m learning at my job; my team unfortunately doesn’t get very interesting projects or problems to work on and I’d like to do more than update some button text / replace assets.",vent,cold
+"Questions for Mid Level SWE / managers
+
+About 4-5 YOE as SWE. Previously in crypto firms, now in a hedge fund 
+ After 9 hours is up do you all go home knowing that there are still uncompleted jira tickets that could be cleared (for easy jira) or partially cleared (for harder ones) if you had stayed extra hours?
+ I don’t know if it’s the wrong mindset to have but during the 9 hours of work I give my all and try to do my best. But after that, I just want to go home.
+ The unfinished tickets are very likely not revenue impacting.
+ And I did try to work weekends once, to clear more but is just never ending jira either from requirements or backlog.
+ Just wondering is this normal ?
+ Saw a video about Alexander wang working insane hours but credit to him as he’s so successful.
+ Of course I’m not aiming anywhere to be remotely near his net worth. 
+ Do SWE managers or FAANG E5 and above work insane hours before getting there? And do they still continue the long hours after getting there?",question,cold
+"2 years into my software engineering career and AI is making me feel lost about my career
+
+I'm a software engineer with around 2 years of professional experience, and lately I've been feeling pretty lost about my career because of AI.
+ I started learning backend development before AI became such a big part of software development. I used to spend a lot of time reading documentation, Stack Overflow, existing code, debugging things myself, etc. When I started my first job, I had a lot of ownership over a backend project and learned a ton because I had to figure things out myself. I was genuinely passionate about programming.
+ A few months ago I joined a much larger company hoping I'd learn how large-scale systems are built and have more experienced engineers around me. Instead, I haven't really learned much, and I've become heavily dependent on AI & Cursor over the past 6 months.
+ My productivity has definitely increased, but I feel like I'm losing the part of development that actually made me learn. I used to review everything AI generated and make sure I understood it. Now the codebases are large enough that it's becoming difficult to fully understand everything AI does, so I often end up trusting its understanding of the codebase.
+ That's what worries me. I'm only 2 years into my career and I feel like I should be building my engineering fundamentals, not becoming dependent on a tool that understands the codebase better than I do.
+ I brought this up with my manager and he basically told me to use AI to learn instead of relying on other people mentoring you. Maybe he's right, but I don't really know how to do that effectively.
+ So I'd like to hear from more experienced engineers:
+  How do you use AI without letting it replace the thinking/learning part of engineering?
+ If you were 2 years into your career today, what would you focus on learning?
+ Do you think less experienced engineers should approach learning differently in the AI era?
+  TL;DR: AI has made me much faster at work, but after 6 months of heavily relying on Cursor, I feel like I'm learning less and becoming dependent on it. I'm worried about becoming good at shipping code without actually becoming a better engineer. How should I approach learning and using AI at this stage of my career?",question,cold
+"Will the market get better with new PERM rules?
+
+Yeah, I know that international workers in the US are not the cause of bad market, but I am curious as to what you guys think. Will it get better for domestic cs grads or no? I personally doubt it because of the offshoring, and I think that until there is a tax/penalty for offshoring, it won’t get better. Please share your thoughts!!!",hot_take,cold
+"is it possible to get a job in france from india as a swe/ML engineer if i know french?
+
+2nd year compscience student in india here. grinding dsa and core cs daily. i will be doing java full stack then good projects in it then i will do ML and projects . i will have two resumes one for swe one for ML and one for both. is it possible to get a job in france if i have all of this and i know french at a good level. what would be the chances for me?",question,cold
+"Did Microsoft basically stop hiring Product and Program managers in the US?
+
+There are 69 openings for product roles at MSFT in the US right now (most of them are principal+). In comparison, Google (a smaller company by headcount) has 166 and Amazon over 500.",analysis,cold
+"More tech unionization - 1,900 Blizzard Developers Just Won A Union Contract Full Of Protections For AI, Layoffs, And More
+
+https://kotaku.com/blizzard-workers-union-contract-microsoft-2000732422
+ Not quite impossible for tech to shape up 
+ Blizz devs just unionized and got:
+ - Any implementation of AI technology that materially impacts union-performed work must be bargained over before Microsoft can roll it out.
+ - Staff get two months of advance layoff warning, guaranteed severance payouts, and over a year of priority re-hiring rights if cuts occur.
+ - Remote work is no longer subject to sudden executive whim or opaque denials.
+ - Leaving the studio or getting laid off before launch will no longer erase a developer from the final credits
+ - future corporate takeover cannot nullify these terms.
+ So the learned helplessness about tech unions was wrong. Doesn’t stop a layoff but makes it a lot softer",analysis,cold
+"Is anyone planning on a career change?
+
+I'm curious if anyone else is planning on a career change after all this, and if so, what's your plan?
+ I'm struggling to think about what else I can do considering the huge financial loss that I'm not sure my family can afford. I definitely feel stuck and anxious that I'd struggle to adapt to any other career.",vent,cold
+"Got fired because of AI
+
+So apparently, I shouldn't write any code by hand and don't do any code reviews. They said I was slow. They said I should've to closed issues more quickly cause we have AI tools. I saw the jumbled mess they created before I came to this company, and they hired me specifically to fix UI/UX and its plethora of frontend issues.
+ They created this app entirely with Claude and every page had a different design, different UI etc. No design reference to look at, nothing. Everything is created on the fly.
+ I did my best, created a unified UI style and fixed almost every page but looks like it was not enough for them.
+ The time I spent in this company felt like a never ending nightmare. I'm glad that it ended but I also hate to start job searching again. 
+ Sorry just wanted to vent a little.",vent,cold
+"Can I leverage a job I just started to negotiate another offer?
+
+I recently started a new job at Company A and looking for some advice on how to handle another offer.
+ I applied to Company B before starting at Company A. The process with B continued afterward, I completed the loop, and recently received a verbal offer.
+ Originally B was considering me for the same level I’m currently at at A. I asked to be evaluated for the next level based on the scope/level I had at my previous company, went through the additional process, and got the up-level.
+ Comp-wise, B is roughly in line with A overall. B has a higher base and better long-term compensation, but year 1 is slightly lower because A gave me a very large sign-on bonus. B would also require relocation.
+ The complication is that throughout the interview process, Company B was under the impression I was still at my previous employer. My recent move to Company A never came up, and nobody directly asked about my current employment situation, so I never mentioned it. Most of the interviews were centered around experience from my previous company.
+ During the verbal offer conversation, the recruiter said there isn’t much room to increase the offer unless I can provide documentation supporting higher current compensation or another competing package.
+ I mentioned that my current compensation is around X, and the recruiter asked me to provide documentation. A significant portion of that compensation is the sign-on bonus from Company A that I’d be giving up by leaving so soon.
+ My questions are:
+ Is it reasonable to use the offer letter from Company A as documentation of my current compensation, even though I already accepted it and have only been there about a month?
+ Since Company B didn’t know I had already moved to Company A, does bringing this up now look shady or create a risk of the verbal offer being rescinded?
+ If you were in this situation, how would you explain the change to the recruiter before providing the documentation? Would you even do it at all? 
+ TLDR: I started Company A about a month ago while Company B’s interview process was already underway. B never knew I had switched jobs and thought I was still at my previous company. I now have a verbal offer from B, but it’s slightly below my current comp because I’d be giving up a large sign-on at A. Recruiter said comp won’t change without documentation of higher current pay. Can I use my accepted Company A offer/current comp as leverage, and does revealing the job change now risk looking shady or getting the offer pulled?",question,cold
+"My job is making me question my abilities as a dev
+
+Hey everyone, I wanted to vent a little and get some outside perspectives on my current work situation.
+ TL;DR:
+ Dev with 5yoe, got moved to a new project just over a week ago with almost no onboarding. My manager thinks I'm underperforming and lacking autonomy, expecting me to find bugs, implement improvements, build dashboards, and deliver constantly. It's making me question my abilities and feel burned out.
+ Is this normal for a mid-level dev? How do you guys handle unfamiliar codebases? Should I try to improve my situation or start looking for another job?
+ Wall of text here:
+ I have around 5 years of experience as a developer and work at a fairly big company in my country. A little over a week ago, I was moved to a different team and project due to an internal reorganization.
+ My onboarding basically consisted of: ""Clone this repo. It's yours now. Find bugs, fix them, and implement improvements."" Since then, I've been analyzing the codebase using Codex, trying to understand how everything works.
+ Recently, my manager criticized my performance, saying I'm taking too long, lack autonomy, and that my performance is closer to a junior developer's than a mid-level's. He expects me to already be generating bug reports, fixing issues, building dashboards, and proactively identifying improvements.
+ I explained that I'm still getting familiar with the system and that parallelizing all these tasks after barely a week on the project is challenging.
+ We're also heavily encouraged to use AI for practically everything, which has been burning me out. I feel like there's more emphasis on producing output quickly than actually understanding what we're building.
+ What bothers me most is that I've never had my abilities questioned like this before. In previous jobs, I've built features end to end, deployed to production, worked with stakeholders, discussed about technical solutions with peers/leaders and handled tasks independently. I don't think I lack autonomy, I mean that I've never felt like I needed someone constantly holding my hand to get things done besides asking some questions to my manager/ seniors. I usually come with a solution and asks if its okay, i dont like going without anything and expect to get everything solved. but I do need some time to understand a project before I can confidently suggest improvements.
+ Now I feel like nothing I do is enough, and it's honestly making me question my abilities as a developer.
+ I'm also curious about how you approach unfamiliar codebases
+ my usual workflow is to explain the task and context to AI, propose an approach, and iterate on its suggestions until I fully understand and agree with the solution. Sometimes I wonder if I'm spending too much time trying to understand things instead of just implementing them.
+ So, a few questions:
+ Are these reasonable expectations for a mid level developer after just one week?
+ How do you approach understanding an unfamiliar codebase with AI? Am I being inefficient?
+ Would you try to turn this situation around or start looking for another job?
+ For context, I have 5 years of experience, mainly with React, Node.js, TypeScript, and .NET. I'm considering looking elsewhere, but I'm unsure how difficult finding another job would be in the current market.",vent,cold
+"Just put in my two weeks for the first time ever
+
+Just put in my two weeks at my new grad job after finding something better. I’m leaving a bureaucratic F500 with an ossified corporate structure so I had to dial up three of my “managers” and HR to let them know I was leaving. Every call was painful and was more annoying than triaging a prod bug at 10 PM.
+ Tips for approaching the scenarios better? I feel like I was super awkward and had no idea how to really navigate these hard conversations.",vent,cold
+"Lost and depressed about my decision
+
+I’m so lost and sick of rethinking my future everyday
+ I’m 25 and going to school for the first time. I have always wanted to study computer science since I was 17, but never got a chance to. So now that I’m finally doing it, I keep reevaluating n decision because I can see it’s not worth it in the long term, esp if I wanna build a sustainable stable career. 
+ This is why: 
+ \- I know there’s a lot of ageism in the industry, and by the time I graduate I’ll already be 30-31 with only internship experience and no professional experience, and I feel that I’ll be unhirable after 40-41 
+ \- With AI, and the large number of ppl I’ve talked to who are going back for a second degree, in sth more employable and hands on and untouched by AI like Mech Engineering/elec engineering etc, or the jobs being completely wiped out by it, or the sheer number of ppl that are unemployed who graduated 2-3 yrs ago, or the sr employees that are stuck in dead end jobs or also unable to find employment.
+ \- I genuinely don’t fin anything else interesting. I’ve spoken to and considered the careers that are untouched by AI like ultrasound tech, civil engineering, social work, mental health counsellor, but I have ZERO interest in these fields 
+ \- all other fields that are wfh, good balanced lifestyle, corporate such as Project mgmt, Business Analyst, investment banking etc those fields are also heavily affected by AI and have the same outcome as any computer job that can be done remotely 
+ so what do I do? Age is my biggest worry bc I won’t graduate as a worry free 22 yr old, I’ll graduate at 30-31 and since I wanna get married and possibly buy a house and start a family, how on earth do I go about doing that? 
+ (I’m in Canada, which is probably experiencing the worst economic downturn the country or my province has ever seen), but I’d move to US right away if I could, even with all it’s cons rn 
+ I’ve literally tried even teaching English to kids in China, and now even that is dead. Law and medicine are too long, expensive and mentally taxing. Trades are cannot be done wfh, and having various health issues I cannot do trades or the military.
+ IM SO LOST PLEASE HELP",vent,cold
