@@ -42,6 +42,26 @@
 <!-- Your community, and what your classifier sorts posts into. Three or four
      sentences. -->
 
+TakeMeter sorts posts from **r/cscareerquestions** (public, no login needed), a
+community where people discuss CS jobs, layoffs, AI and the job market. Posts
+there range from reasoned arguments backed by real numbers to venting with no
+point to bare questions. The classifier is meant to tell those kinds of post
+apart.
+
+**Distinctions I committed to** (each came from posts I read in a 40-post
+sample, and each is something I can point at in the text):
+
+1. **Claim or question.** Does the post assert something about the industry
+   (e.g. "Good developers have improved development speed for at least x5"), or
+   only ask something (e.g. "would you start applying?")?
+2. **Specifics or vague.** Does the post cite numbers or concrete details (e.g.
+   "12 people", "10-12 hours a day, six days a week"), or none at all?
+3. **Reasoning or venting.** Does the post give a because/therefore, or mainly
+   express a feeling (e.g. "What the fuck has happened to this profession?")?
+
+Mod megathreads (resume advice, salary sharing) are excluded from the data.
+
+
 
 
 ---
@@ -54,33 +74,123 @@
      The decision rule is worth a point on its own and it's the thing most
      people leave out. Every taxonomy has a hardest boundary. Name yours. -->
 
-### `label_one`
+### `analysis`
 
-**Definition:**
-
-**Example 1:**
->
-
-**Example 2:**
->
-
-### `label_two`
-
-**Definition:**
+**Definition:** Makes a claim and supports it with a concrete detail or
+reasoning, such as a number, a timeframe, or a because/therefore.
 
 **Example 1:**
->
+> Over the last year or so i am and most of my friends and colleagues are
+> working 10-12 hours a day, six days a week as companies have shifted to being
+> "AI-first" or "AI-native," it is absolutely contrary to the claim that AI
+> would make developers' lives easier and cut down on work time
 
 **Example 2:**
->
+> I work in company of 12 people and last 6 months we're been developing 100%
+> with AI. [...] Good developers have improved development speed for at least x5.
+> Bad developers are still bad developers. They introduce a lot of bugs with AI
+
+### `hot_take`
+
+**Definition:** A view about the industry, the market, or AI as a whole, or a
+question put to the community for its views on such a general topic, offered
+with no concrete detail or reasoning behind it. The answer matters to
+everyone in the field, not only to the author.
+
+**Example 1:**
+> People cannot communicate anymore.
+
+(from "Communication Breakdown", which asserts this as a sweeping trend and
+illustrates it with a generic Person A / Person B pattern, not a specific case)
+
+**Example 2:**
+> CS has gone from arguably the single best to one of the worst career path in
+> very short time and nobody has reallly came to terms with it yet. Has there
+> ever being another collapse in a field as bad and rapidly as ours?
+
+(from "Has any career in history collapsed as fast as CS?")
+
+### `vent`
+
+**Definition:** The point of the post is a feeling (frustration, nostalgia,
+dread), with little or no argument behind it.
+
+**Example 1:**
+> What the fuck has happened to this profession?
+
+(from "Company going full agentic", which describes a process then asks how to
+feel about it)
+
+**Example 2:**
+> i miss those old days. [...] everyone just wants speed and results and the old
+> way of doing things almost feels outdated even if it still feels so good deep
+> down.
+
+### `question`
+
+**Definition:** Mainly asks for advice, information, or help with the author's
+own situation (an offer, an interview, a career move), and makes no claim of
+its own.
+
+**Example 1:**
+> Title - with all the layoff news, if your company did a large wave of layoffs
+> in light of "restructuring", would you begin applying elsewhere? Why or why
+> not?
+
+**Example 2:**
+> Say you apply for a role with Company A, didn't pass their background
+> screening for whatever reason (criminal record, drugs, etc). Have you seen
+> anyone reapply and then get hired?
 
 ### The hardest boundary
 
-**Which two labels:**
+**Which two labels:** `analysis` and `hot_take` (with `vent` as a close
+second)
 
 **The decision rule I used every time:**
-<!-- e.g. "If the post names a specific checkable fact, it's `analysis`, even
-     if the tone is heated." -->
+If the post gives a concrete detail and uses it to support a conclusion, it's
+`analysis`, even if the tone is heated or it ends with a question. If the
+feeling is the point and the details are only backdrop, it's `vent`. If a post
+states a confident claim but offers no number, detail, or because, it's
+`hot_take`, even when the tone is calm. A claim with no support is not
+`analysis`.
+
+Example of the boundary: "Why am I working more if AI was supposed to make
+coding easier?" has burnout and venting in it, but it cites hours and uses them
+to argue that the AI productivity boost is really overtime, so it's `analysis`.
+
+### A second boundary: `question` and `hot_take`
+
+**The decision rule I used every time:**
+Ask who the answer is for. If the author needs it to decide something in their
+own life or work (an offer, an interview, a career move), it's `question`,
+even if the post states unsupported claims along the way as assumptions. If
+it's a view, or a request for views, on the industry, the market, or AI as a
+whole, and the answer wouldn't change anything the author has to decide, it's
+`hot_take`. If a post does both, the author's own decision wins.
+
+Examples of the boundary: "Embedded systems, cybersecurity, networking, Edge
+AI/ML, academia or pivot out of engineering" says AI will "wipe the entry level
+of the field", but the post exists to ask for career advice, so it's
+`question`. "Company conducting paper exams on campus for SWE roles. Thoughts?"
+asks what the community thinks of a general hiring trend, so it's `hot_take`.
+
+### A third boundary: `vent` and `hot_take`
+
+**The decision rule I used every time:**
+If a reader could reasonably reply "that's not true" (e.g. "Leetcode is a
+scam"), it's a claim, so `hot_take`. If it only reports how the author feels
+("I hate...", "I'm so done"), it's `vent`. If a post has both, the part the
+post builds to wins, usually the ending.
+
+Humor and sarcasm don't change the label. I label what the post does, not how
+it sounds.
+
+Examples of the boundary: "I hate that every standup is about AI now. Every.
+Single. One. I can't take it anymore." is `vent`, because nobody can reply
+"false" to "I hate it". "Management is clueless. Always has been. I'm so
+done with this place." contains a claim, but it builds to "I'm so done", so it's
+also `vent`.
 
 
 
@@ -91,19 +201,33 @@
 <!-- Where you collected from, how you labelled, your counts, and three hard
      cases. -->
 
-**Where the posts came from:**
+**Where the posts came from:** r/cscareerquestions, public posts only. I pulled
+the public RSS feeds for hot, new, top (month), top (year) and controversial on
+14-15 October 2026, so the sample isn't all one kind of post. I removed
+moderator megathreads (resume advice, salary sharing, rant and interview
+threads) and posts that were only a news link with no text of their own.
 
-**How I labelled them:** <!-- Cold first? Pre-labelled with AI and corrected?
-Say so plainly — the disclosure is required, not penalised. -->
+**How I labelled them:** I labelled the first 20 posts cold, with no help and
+no tools (note column: `cold`). An AI assistant pre-labelled the other 205 using
+my definitions and decision rules, and gave each a confidence of high, medium or
+low (note column: `pre-labelled by AI, confidence ...`). I reviewed the
+low-confidence rows first.
+
+I read every pre-labelled row and wrote a label for each one, whether I agreed
+or not. I changed 42 of the 205 AI labels (about 1 in 5). Rows are marked in the
+note column as confirmed or changed.
 
 **Counts per label:**
 
 | Label | Count | Share |
 |---|---|---|
-|  |  |  |
-|  |  |  |
-|  |  |  |
-| **Total** |  | 100% |
+| `question` | 77 | 34% |
+| `analysis` | 56 | 25% |
+| `hot_take` | 50 | 22% |
+| `vent` | 42 | 19% |
+| **Total** | 225 | 100% |
+
+(Final counts after my review. No label is above the 70% cap.)
 
 **Three hard cases**
 
@@ -111,25 +235,35 @@ Say so plainly — the disclosure is required, not penalised. -->
      been, and what you chose. These are worth more than the easy 190. -->
 
 **1.**
-> *The post:*
+> *The post:* "Why am I working more if AI was supposed to make coding easier?"
 >
-> *Could have been:*
+> *Could have been:* `analysis`, `hot_take` or `vent`.
 >
-> *I chose, because:*
+> *I chose, because:* `hot_take` when I labelled it cold, although I called it
+> `analysis` in an earlier practice round. It gives hours (10-12 a day, six days
+> a week), but they are claims about friends and colleagues that nobody can
+> check, and it ends by asking whether it's like this for everyone. I keep my
+> original cold label and record the inconsistency here.
 
 **2.**
-> *The post:*
+> *The post:* "Will the market get better with new PERM rules?"
 >
-> *Could have been:*
+> *Could have been:* `hot_take` or `question`.
 >
-> *I chose, because:*
+> *I chose, because:* `hot_take`. It states a view ("until there is a
+> tax/penalty for offshoring, it won't get better") and asks the community for
+> its views on a general market question, not for help with the author's own
+> decision.
 
 **3.**
-> *The post:*
+> *The post:* "Company conducting paper exams on campus for SWE roles.
+> Thoughts?"
 >
-> *Could have been:*
+> *Could have been:* `hot_take` or `question`.
 >
-> *I chose, because:*
+> *I chose, because:* `hot_take`. It asks what the community thinks of a
+> hiring trend. The closing line ("whether or not they would take this
+> opportunity") is personal, so it sits right on the question boundary.
 
 ---
 
@@ -137,13 +271,19 @@ Say so plainly — the disclosure is required, not penalised. -->
 
 <!-- Your starting model, your settings, and anything you changed and why. -->
 
-**Base model:**
+**Base model:** `distilbert-base-uncased`
 
-**Settings:** <!-- epochs, learning rate, batch size, seed -->
+**Settings:** 3 epochs, learning rate 2e-5, batch size 16, 128 tokens per
+post, seed 42. Trained on CPU (torch 2.14.1+cpu), as recorded in
+`results.json`. <!-- epochs, learning rate, batch size, seed -->
 
-**Anything I changed from the defaults, and why:**
+**Anything I changed from the defaults, and why:** Nothing. I used the
+notebook defaults for the first run.
 
-**Split sizes:** <!-- train / val / test, and per-label counts in the test
+**Split sizes:** train 157 / val 34 / test 34 (70/15/15 of 225 posts).
+Test split per label: `analysis` 8, `hot_take` 8, `vent` 6, `question` 12.
+`vent` has only 6 test examples, below the notebook's threshold of about 8, so
+its metrics will move a lot between seeds. <!-- train / val / test, and per-label counts in the test
 split. If a label had fewer than about 8 in test, say so — it explains a lot
 of next unit's variance. -->
 
@@ -162,17 +302,32 @@ of next unit's variance. -->
 
 **Moment 1**
 
-- *What I asked for:*
-- *What came back:*
-- *What I changed:*
+- *What I asked for:* eight posts written to sit on the boundaries of my three
+  labels, with the intended labels hidden, to stress-test my definitions.
+- *What came back:* I matched 7 of 8. The miss was a confident claim with no
+  support, which fit none of `analysis`, `vent` or `question`.
+- *What I changed:* I added a fourth label, `hot_take`, and wrote a decision
+  rule for `analysis` versus `hot_take`.
 
 **Moment 2**
 
-- *What I asked for:*
-- *What came back:*
-- *What I changed:*
+- *What I asked for:* a second stress test of eight boundary posts, this time
+  covering all four labels.
+- *What came back:* I matched 6 of 8 cleanly. The split was a sarcastic complaint
+  about every standup being about AI, which I first read as `hot_take` because
+  of the humour.
+- *What I changed:* I added a rule that humour and sarcasm don't change the
+  label, and a `vent` versus `hot_take` tie-breaker ("could a reader reply that's
+  not true?"). Later I redefined `hot_take` as a view on, or a discussion of,
+  the industry as a whole, and rewrote the `question` boundary around whose
+  decision the post is about.
 
-**Pre-labelling disclosure:**
+**Pre-labelling disclosure:** An AI assistant pre-labelled 205 of my 225
+posts, using my definitions and decision rules, and gave each a confidence. I
+labelled the other 20 cold. I then read every pre-labelled row, wrote my own
+label for each, and changed 42 of them. The labels in `labels.csv` are my
+final decisions. The AI also helped draft the wording of this README and the
+reasons on criteria 2 to 5, which I asked for. The criteria numbers are mine.
 
 <!-- ═══════════════════════ UNIT 6 — THE TEST ═══════════════════════
 
