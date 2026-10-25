@@ -33,10 +33,44 @@ CUTS = {
 }
 
 ns = {"__name__": "__main__"}
+
+
+def use_class_weights(ns):
+    """The ONE change for the 'after' run: weight the loss by 1 / label frequency.
+
+    The notebook's train_model builds a Trainer from the global name `Trainer`.
+    Swapping that name for a subclass changes only the loss; the labels, split,
+    seeds, epochs, learning rate, batch size and model are all untouched.
+    """
+    import torch
+
+    base_trainer = ns["Trainer"]
+
+    class WeightedTrainer(base_trainer):
+        def __init__(self, *args, **kwargs):
+            super().__init__(*args, **kwargs)
+            y = torch.tensor(self.train_dataset["labels"])
+            counts = torch.bincount(y, minlength=self.model.config.num_labels).float()
+            self.class_weights = len(y) / (len(counts) * counts.clamp(min=1))
+
+        def compute_loss(self, model, inputs, return_outputs=False, **kwargs):
+            labels = inputs.pop("labels")
+            outputs = model(**inputs)
+            loss = torch.nn.functional.cross_entropy(
+                outputs.logits, labels,
+                weight=self.class_weights.to(outputs.logits.device),
+            )
+            return (loss, outputs) if return_outputs else loss
+
+    ns["Trainer"] = WeightedTrainer
+
+
 for i in (2, 4, 6, 8, 10, 12, 14, 16, 19, 21, 23):
     code = source(i)
     if i in CUTS:
         code = code.split(CUTS[i])[0]
     if i == 19:
         code = code.replace('RUN_LABEL = "before"', f'RUN_LABEL = "{run_label}"')
+        if run_label == "after":
+            use_class_weights(ns)
     exec(compile(code, f"notebook_cell_{i}", "exec"), ns)
