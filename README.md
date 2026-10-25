@@ -589,4 +589,21 @@ With bare names the baseline predicted `question` 21 times, `vent` 9, and
 ---
 
 
+## Stretch Declarations (written before building them)
+
+I am attempting all three stretch items:
+
+1. **Confidence check.** I will report whether the model's confident predictions
+   are right more often than its unsure ones, using the `confidence` numbers
+   already in `results_three_seeds_before.json`, with the counts behind it.
+2. **Per-label error write-up.** For whichever label the confusion matrix shows
+   is worst, I will say what it gets confused with and what those examples have
+   in common.
+3. **A second measured improvement.** After my first improvement, I will make a
+   second change that my diagnosis points at, run it on the same three seeds in
+   the same table format, and say whether it helped. My candidate is a
+   two-stage classifier (`analysis` vs. everything else, then the remaining
+   labels), but I will only build it if the diagnosis supports it. If it
+   doesn't, I will say so and pick the change the diagnosis does point at.
+
 📖 **How to run this project: [RUNNING.md](RUNNING.md)**
