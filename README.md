@@ -519,81 +519,81 @@ it.
 >
 > *Staff said / I said:* `analysis` / `hot_take`
 >
-> *My call, and why:*
+> *My call, and why:* analysis. person kept track and analyzed
 >
-> *Which pile:*
+> *Which pile:* (a)
 
 **2.**
 > *The post:* "Carbon plates aren't the whole story. My times dropped 2% in the shoes and another 2% the following year in the same pair, when the only thing that changed was going from 35 to 50 miles a week."
 >
 > *Staff said / I said:* `analysis` / `reaction`
 >
-> *My call, and why:*
+> *My call, and why:* analysis. person kept track and analyzed
 >
-> *Which pile:*
+> *Which pile:* (a)
 
 **3.**
 > *The post:* "Went back through the club results going back to 2012. Every single year the number of people who enter the spring marathon and don't start it sits between 18 and 23 percent. It's not a bad-luck year, it's the base rate."
 >
 > *Staff said / I said:* `analysis` / `hot_take`
 >
-> *My call, and why:*
+> *My call, and why:* analysis. statistical point for baseline
 >
-> *Which pile:*
+> *Which pile:* (a)
 
 **4.**
 > *The post:* "Anyone who races more than once a month isn't training, they're just collecting medals."
 >
 > *Staff said / I said:* `hot_take` / `reaction`
 >
-> *My call, and why:*
+> *My call, and why:* reaction. the way it is said “They’re just…”
 >
-> *Which pile:*
+> *Which pile:* (a)
 
 **5.**
 > *The post:* "Times are down about 3% since the shoe rules changed, so obviously the shoes are the whole story and the sport has a problem."
 >
 > *Staff said / I said:* `hot_take` / `analysis`
 >
-> *My call, and why:*
+> *My call, and why:* hot_take. sense of sarcasm
 >
-> *Which pile:*
+> *Which pile:* (a)
 
 **6.**
 > *The post:* "Track sessions are wasted on anyone running slower than 8 minute miles. You'd get more out of just running more."
 >
 > *Staff said / I said:* `hot_take` / `analysis`
 >
-> *My call, and why:*
+> *My call, and why:* hot_take. seemed more of an opinion than a stat
 >
-> *Which pile:*
+> *Which pile:* (a)
 
 **7.**
 > *The post:* "Every injury thread on this forum is the same injury and the same three replies."
 >
 > *Staff said / I said:* `hot_take` / `reaction`
 >
-> *My call, and why:*
+> *My call, and why:* reaction. Person seemed annoyed there was no other info on the forum
 >
-> *Which pile:*
+> *Which pile:* (a)
 
 **8.**
 > *The post:* "Blew up at 20 with the pace band still in my hand like it was going to help. Rough one."
 >
 > *Staff said / I said:* `reaction` / `hot_take`
 >
-> *My call, and why:*
+> *My call, and why:* hot_take. He thought the pace band was going to push him up
 >
-> *Which pile:*
+> *Which pile:* (a)
 
 **9.**
 > *The post:* "Wind was so bad on the out section I was leaning at about 20 degrees. Coming back felt like cheating."
 >
 > *Staff said / I said:* `reaction` / `analysis`
 >
-> *My call, and why:*
+> *My call, and why:* reaction. “felt”
 >
-> *Which pile:*
+> *Which pile:* (a)
 
 **What the pattern in my disagreements tells me:**
 
