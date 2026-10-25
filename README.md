@@ -549,4 +549,18 @@ learned:**
 
 ---
 
+## Baseline vs. Trained
+
+**Prediction (written before running the comparison):** My trained model will
+beat the zero-shot baseline most on `hot_take` and `vent`, because those labels
+depend on my own tie-breaker rules ("could a reader reply that's not true?",
+"the part the post builds to wins") that the baseline never saw, while the two
+will be closest on `question`, which can be spotted from the definition alone.
+
+<!-- Paste the Baseline vs. Trained table from
+     `python baseline.py --trained results.json` here. -->
+
+---
+
+
 📖 **How to run this project: [RUNNING.md](RUNNING.md)**

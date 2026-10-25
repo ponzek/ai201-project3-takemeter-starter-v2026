@@ -5,6 +5,7 @@
 #
 # Delete the examples below and put yours in.
 
-analysis: makes an argument backed by a specific, checkable fact
-hot_take: a confident claim with no support offered
-reaction: an immediate response to something that just happened
+analysis: Makes a claim and supports it with a concrete detail or reasoning, such as a number, a timeframe, or a because/therefore.
+hot_take: A view about the industry, the market, or AI as a whole, or a question put to the community for its views on such a general topic, offered with no concrete detail or reasoning behind it. The answer matters to everyone in the field, not only to the author.
+vent: The point of the post is a feeling (frustration, nostalgia, dread), with little or no argument behind it.
+question: Mainly asks for advice, information, or help with the author's own situation (an offer, an interview, a career move), and makes no claim of its own.
