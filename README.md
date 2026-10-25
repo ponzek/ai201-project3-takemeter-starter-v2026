@@ -566,6 +566,26 @@ will be closest on `question`, which can be spotted from the definition alone.
 | F1 — `question` | 0.000 | 0.533 | +0.533 |
 | F1 — `vent` | 0.000 | 0.000 | +0.000 |
 
+The baseline column above uses my label definitions from `label_definitions.txt`
+(`baseline_results.json`). On those definitions the baseline predicted
+`analysis` for 32 of 34 posts.
+
+**Bare label names (no definitions), for comparison:** I also ran the baseline
+with `label_definitions.txt` removed, so it only saw the label names
+(`baseline_results_bare.json`).
+
+| Measure | Definitions | Bare names |
+|---|---|---|
+| Overall accuracy | 0.235 | 0.529 |
+| Macro F1 | 0.100 | 0.433 |
+| F1 — `analysis` | 0.400 | 0.400 |
+| F1 — `hot_take` | 0.000 | 0.000 |
+| F1 — `question` | 0.000 | 0.667 |
+| F1 — `vent` | 0.000 | 0.667 |
+
+With bare names the baseline predicted `question` 21 times, `vent` 9, and
+`analysis` and `hot_take` 2 each.
+
 ---
 
 
