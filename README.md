@@ -344,18 +344,49 @@ reasons on criteria 2 to 5, which I asked for. The criteria numbers are mine.
 
 | Measure | Baseline | Trained | Difference |
 |---|---|---|---|
-| Overall accuracy |  |  |  |
-| Macro F1 |  |  |  |
-| F1 — `label_one` |  |  |  |
-| F1 — `label_two` |  |  |  |
+| Overall accuracy | 0.235 | 0.382 | +0.147 |
+| Macro F1 | 0.100 | 0.189 | +0.089 |
+| F1 — `analysis` | 0.400 | 0.222 | -0.178 |
+| F1 — `hot_take` | 0.000 | 0.000 | +0.000 |
+| F1 — `vent` | 0.000 | 0.000 | +0.000 |
+| F1 — `question` | 0.000 | 0.533 | +0.533 |
+
+Baseline: `facebook/bart-large-mnli`, zero-shot, using my definitions from
+`label_definitions.txt` (`baseline_results.json`). Trained: seed 42, from
+`results.json`. Both were scored on the same 34 posts in `test_split.csv`.
 
 **What I predicted before I looked:**
 <!-- Milestone 1 asks you to write this BEFORE seeing the trained numbers. A
      prediction made afterwards isn't one. -->
+My trained model will beat the zero-shot baseline most on `hot_take` and `vent`,
+because those labels depend on my own tie-breaker rules ("could a reader reply
+that's not true?", "the part the post builds to wins") that the baseline never
+saw, while the two will be closest on `question`, which can be spotted from the
+definition alone.
+
+(Committed in `bd424d7`, before the baseline or comparison was run. It was
+wrong: neither model scored above 0 on `hot_take` or `vent`, and `question` was
+the label with the biggest gap, +0.533.)
 
 **What the gap actually means:**
 <!-- If the baseline matched your trained model, your fine-tuning added
      nothing — and that is a real finding, not a failure. Say it plainly. -->
+The trained model beats the baseline that used my definitions (0.382 vs. 0.235
+accuracy). That baseline predicted `analysis` for 32 of 34 posts, so it was
+mostly guessing one label. When I removed the definitions and gave it only the
+bare label names (`baseline_results_bare.json`), it scored 0.529 accuracy and
+0.433 macro F1, which is higher than my trained model. So against a fair
+baseline my fine-tuning has not yet added anything: the trained model mostly
+predicts `question` (see the confusion matrix below).
+
+| Measure | Baseline with definitions | Baseline, bare names | Trained |
+|---|---|---|---|
+| Overall accuracy | 0.235 | 0.529 | 0.382 |
+| Macro F1 | 0.100 | 0.433 | 0.189 |
+| F1 — `analysis` | 0.400 | 0.400 | 0.222 |
+| F1 — `hot_take` | 0.000 | 0.000 | 0.000 |
+| F1 — `vent` | 0.000 | 0.667 | 0.000 |
+| F1 — `question` | 0.000 | 0.667 | 0.533 |
 
 
 
@@ -366,29 +397,44 @@ reasons on criteria 2 to 5, which I asked for. The criteria numbers are mine.
 <!-- Five criteria across three seeds. The notebook's section 6 prints the
      spread table; the Target and Verdict columns are yours. -->
 
+Device: CPU (PyTorch 2.14.1+cpu), recorded in `results_three_seeds_before.json`.
+Seeds 42, 7 and 2024; 3 epochs, learning rate 2e-5, batch size 16, `distilbert-base-uncased`.
+
 | Criterion | Target | Seed 42 | Seed 7 | Seed 2024 | Verdict |
 |---|---|---|---|---|---|
-| 1.  |  |  |  |  |  |
-| 2.  |  |  |  |  |  |
-| 3.  |  |  |  |  |  |
-| 4.  |  |  |  |  |  |
-| 5.  |  |  |  |  |  |
+| 1. Overall accuracy | ≥ 0.70 on every seed | 0.382 | 0.382 | 0.353 | MISSED |
+| 2. F1 of `analysis`, `vent`, `question` | each ≥ 0.60 on every seed | 0.222 / 0.000 / 0.533 | 0.222 / 0.000 / 0.533 | 0.000 / 0.000 / 0.522 | MISSED |
+| 3. F1 of `hot_take` | ≥ 0.30 on every seed | 0.000 | 0.000 | 0.000 | MISSED |
+| 4. Largest label share of labeled posts | ≤ 60% | 34% (`question`) | 34% | 34% | MET |
+| 5. Relabel 20 posts a week later, matches | ≥ 80% | not measured | not measured | not measured | NOT TESTED |
+
+Criterion 4 is a property of `labels.csv`, so it is the same on every seed.
+Criterion 5 asks for a relabel of 20 of my own posts a week later; I have not
+done that relabel. The only agreement evidence I have is the staff set (70%, 30
+posts, a different taxonomy), which is a proxy and not a test of this criterion.
 
 ### Confusion matrix
 
 <!-- ⚠️ TYPED AS A MARKDOWN TABLE. The notebook prints one ready to paste.
      An image of a matrix earns nothing. -->
+Seed 42 (34 test posts):
 
-| true \ predicted |  |  |  |
-|---|---|---|---|
-| **** |  |  |  |
-| **** |  |  |  |
-| **** |  |  |  |
+| true \ predicted | analysis | hot_take | vent | question |
+|---|---|---|---|---|
+| **analysis** | 1 | 0 | 0 | 7 |
+| **hot_take** | 0 | 0 | 0 | 8 |
+| **vent** | 0 | 0 | 0 | 6 |
+| **question** | 0 | 0 | 0 | 12 |
 
 **My biggest off-diagonal number, and what it means:**
 <!-- Not "the model made mistakes" — WHICH boundary it didn't learn, and which
      direction. "7 real analysis posts were called hot_take and only 3 went the
      other way" is a direction, not just an error rate. -->
+8 real `hot_take` posts were called `question`, and 0 real `question` posts went
+the other way. The same is true of `analysis` (7 called `question`) and `vent`
+(6 called `question`). The model did not learn a boundary between `question` and
+the other three labels: it called 33 of 34 posts `question`, and its 0.382
+accuracy is the 13 it got right by that guess (12 `question` and 1 `analysis`).
 
 
 
@@ -401,11 +447,11 @@ reasons on criteria 2 to 5, which I asked for. The criteria numbers are mine.
 
 | # | Criterion | Target | Verdict | How I decided |
 |---|---|---|---|---|
-| 1 |  |  |  |  |
-| 2 |  |  |  |  |
-| 3 |  |  |  |  |
-| 4 |  |  |  |  |
-| 5 |  |  |  |  |
+| 1 | Overall accuracy | ≥ 0.70 on every seed | MISSED | 0.382, 0.382 and 0.353 are all below 0.70; no seed reached it. |
+| 2 | F1 of `analysis`, `vent`, `question` | each ≥ 0.60 on every seed | MISSED | `vent` is 0.000 on all three seeds, `analysis` is 0.222 / 0.222 / 0.000, and `question` is 0.533 / 0.533 / 0.522. All three labels miss on every seed. |
+| 3 | F1 of `hot_take` | ≥ 0.30 on every seed | MISSED | 0.000 on all three seeds. |
+| 4 | No label above 60% | ≤ 60% | MET | The largest label, `question`, holds 34% of the 225 posts. |
+| 5 | Relabel 20 posts, ≥ 80% match | ≥ 80% | NOT TESTED | I have not done the relabel. The staff agreement of 70% is a proxy on a different taxonomy, so I am not calling it MET or MISSED. |
 
 **Diagnoses**
 
@@ -417,6 +463,17 @@ reasons on criteria 2 to 5, which I asked for. The criteria numbers are mine.
      ⚠️ Use your agreement report as evidence. It is the only instrument you
      have that can tell a LABELLING problem from a MODEL problem, and this
      section is graded on whether you used it that way. -->
+**Criteria 1, 2 and 3 (accuracy and per-label F1).** Cause: the model did not
+learn to separate the labels at all and mostly guessed `question`. Evidence:
+(1) on seed 42 it predicted `question` for 33 of 34 test posts, and the other
+three labels each have zero or one correct; (2) training loss barely moved,
+from about 1.39 to 1.29 over three epochs, and 1.386 (ln 4) is the loss of
+guessing the four labels equally, so it never left chance level; (3) accuracy
+is stable across seeds (spread 0.029) and seeds 42 and 7 give identical
+numbers, so this is not one unlucky split. The model-versus-labels question is
+decided by the agreement report below: [fill in after adjudication: how many of
+the 9 disagreements are pile (a), and what that says about whether my own labels
+were applied consistently].
 
 
 
@@ -430,7 +487,12 @@ reasons on criteria 2 to 5, which I asked for. The criteria numbers are mine.
      data/staff_taxonomy.md, not your own — so every argument below is made
      from those definitions and those decision rules. -->
 
-**Agreement rate:** ___ / 30 = ___%
+**Agreement rate:** 21 / 30 = 70%
+
+Disclosure: I opened the TF's `staff_labels.csv` before my own labels were
+saved. I labelled from the staff definitions in `data/staff_taxonomy.md`, but
+the rate may be higher, and the adjudications easier, than if I had not seen
+it.
 
 <!-- Nobody grades this number. A 60% who argues every disagreement from the
      stated rules beats a 95% who wrote "staff was right" nine times. Several
@@ -453,18 +515,81 @@ reasons on criteria 2 to 5, which I asked for. The criteria numbers are mine.
      what you did across your own 200. -->
 
 **1.**
-> *The post:*
+> *The post:* "I tracked sleep against session quality for eleven weeks. Under seven hours the next day's intervals were 6-8 seconds per mile slower, every time bar one. Small sample, one runner, but it's consistent enough that I've stopped scheduling hard days after late shifts."
 >
-> *Staff said / I said:*
+> *Staff said / I said:* `analysis` / `hot_take`
 >
 > *My call, and why:*
 >
 > *Which pile:*
 
 **2.**
-> *The post:*
+> *The post:* "Carbon plates aren't the whole story. My times dropped 2% in the shoes and another 2% the following year in the same pair, when the only thing that changed was going from 35 to 50 miles a week."
 >
-> *Staff said / I said:*
+> *Staff said / I said:* `analysis` / `reaction`
+>
+> *My call, and why:*
+>
+> *Which pile:*
+
+**3.**
+> *The post:* "Went back through the club results going back to 2012. Every single year the number of people who enter the spring marathon and don't start it sits between 18 and 23 percent. It's not a bad-luck year, it's the base rate."
+>
+> *Staff said / I said:* `analysis` / `hot_take`
+>
+> *My call, and why:*
+>
+> *Which pile:*
+
+**4.**
+> *The post:* "Anyone who races more than once a month isn't training, they're just collecting medals."
+>
+> *Staff said / I said:* `hot_take` / `reaction`
+>
+> *My call, and why:*
+>
+> *Which pile:*
+
+**5.**
+> *The post:* "Times are down about 3% since the shoe rules changed, so obviously the shoes are the whole story and the sport has a problem."
+>
+> *Staff said / I said:* `hot_take` / `analysis`
+>
+> *My call, and why:*
+>
+> *Which pile:*
+
+**6.**
+> *The post:* "Track sessions are wasted on anyone running slower than 8 minute miles. You'd get more out of just running more."
+>
+> *Staff said / I said:* `hot_take` / `analysis`
+>
+> *My call, and why:*
+>
+> *Which pile:*
+
+**7.**
+> *The post:* "Every injury thread on this forum is the same injury and the same three replies."
+>
+> *Staff said / I said:* `hot_take` / `reaction`
+>
+> *My call, and why:*
+>
+> *Which pile:*
+
+**8.**
+> *The post:* "Blew up at 20 with the pace band still in my hand like it was going to help. Rough one."
+>
+> *Staff said / I said:* `reaction` / `hot_take`
+>
+> *My call, and why:*
+>
+> *Which pile:*
+
+**9.**
+> *The post:* "Wind was so bad on the out section I was leaning at about 20 degrees. Coming back felt like cheating."
+>
+> *Staff said / I said:* `reaction` / `analysis`
 >
 > *My call, and why:*
 >
@@ -548,46 +673,6 @@ learned:**
      ═════════════════════════════════════════════════════════════════════ -->
 
 ---
-
-## Baseline vs. Trained
-
-**Prediction (written before running the comparison):** My trained model will
-beat the zero-shot baseline most on `hot_take` and `vent`, because those labels
-depend on my own tie-breaker rules ("could a reader reply that's not true?",
-"the part the post builds to wins") that the baseline never saw, while the two
-will be closest on `question`, which can be spotted from the definition alone.
-
-| Measure | Baseline | Trained | Difference |
-|---|---|---|---|
-| Overall accuracy | 0.235 | 0.382 | +0.147 |
-| Macro F1 | 0.100 | 0.189 | +0.089 |
-| F1 — `analysis` | 0.400 | 0.222 | -0.178 |
-| F1 — `hot_take` | 0.000 | 0.000 | +0.000 |
-| F1 — `question` | 0.000 | 0.533 | +0.533 |
-| F1 — `vent` | 0.000 | 0.000 | +0.000 |
-
-The baseline column above uses my label definitions from `label_definitions.txt`
-(`baseline_results.json`). On those definitions the baseline predicted
-`analysis` for 32 of 34 posts.
-
-**Bare label names (no definitions), for comparison:** I also ran the baseline
-with `label_definitions.txt` removed, so it only saw the label names
-(`baseline_results_bare.json`).
-
-| Measure | Definitions | Bare names |
-|---|---|---|
-| Overall accuracy | 0.235 | 0.529 |
-| Macro F1 | 0.100 | 0.433 |
-| F1 — `analysis` | 0.400 | 0.400 |
-| F1 — `hot_take` | 0.000 | 0.000 |
-| F1 — `question` | 0.000 | 0.667 |
-| F1 — `vent` | 0.000 | 0.667 |
-
-With bare names the baseline predicted `question` 21 times, `vent` 9, and
-`analysis` and `hot_take` 2 each.
-
----
-
 
 ## Stretch Declarations (written before building them)
 
