@@ -608,24 +608,114 @@ it.
 
 ## The Improvement
 
-**What I changed:**
+**What I changed:** One thing: the training loss is now weighted by the inverse
+of each label's frequency in the training split (class weighting), so mistakes
+on rare labels cost more. Nothing else changed: same labels, split, seeds
+(42, 7, 2024), 3 epochs, learning rate 2e-5, batch size 16 and
+`distilbert-base-uncased`. The change is in `run_three_seeds.py`
+(`use_class_weights`; commit `b6b1bde` made the change before the run, and the run
+itself wrote `results_three_seeds_after.json`, committed in `91d8830`).
 
-**Which diagnosis pointed at it:**
+**Which diagnosis pointed at it:** Criteria 1, 2 and 3 missed because the model
+guessed `question` for nearly every post (33 of 34 on seed 42) and scored 0 on
+`hot_take` and `vent`. `question` is my biggest label (34%), so a model that
+never leaves chance level learns to guess it. Weighting the loss is meant to
+stop that single-label collapse.
 
 ### Run Log — After
 
+Same device (CPU) and settings as the Before log.
+
 | Criterion | Target | Seed 42 | Seed 7 | Seed 2024 | Verdict |
 |---|---|---|---|---|---|
-| 1.  |  |  |  |  |  |
-| 2.  |  |  |  |  |  |
-| 3.  |  |  |  |  |  |
-| 4.  |  |  |  |  |  |
-| 5.  |  |  |  |  |  |
+| 1. Overall accuracy | ≥ 0.70 on every seed | 0.353 | 0.588 | 0.265 | MISSED |
+| 2. F1 of `analysis`, `vent`, `question` | each ≥ 0.60 on every seed | 0.182 / 0.348 / 0.455 | 0.615 / 0.000 / 0.667 | 0.333 / 0.111 / 0.400 | MISSED |
+| 3. F1 of `hot_take` | ≥ 0.30 on every seed | 0.333 | 0.632 | 0.000 | MISSED |
+| 4. Largest label share of labeled posts | ≤ 60% | 34% (`question`) | 34% | 34% | MET |
+| 5. Relabel 20 posts a week later, matches | ≥ 80% | not measured | not measured | not measured | NOT TESTED |
 
-**Did it help, and how do I know:**
+Before and after, side by side (mean of the three seeds in brackets):
 
-<!-- If it didn't, say so. Relabelling that didn't help is a genuinely
-     interesting result and earns full credit. -->
+| Measure | Before: 42 / 7 / 2024 | After: 42 / 7 / 2024 |
+|---|---|---|
+| Overall accuracy | 0.382 / 0.382 / 0.353 (0.372) | 0.353 / 0.588 / 0.265 (0.402) |
+| Macro F1 | 0.189 / 0.189 / 0.130 (0.169) | 0.329 / 0.478 / 0.211 (0.339) |
+| F1 — `analysis` | 0.222 / 0.222 / 0.000 (0.148) | 0.182 / 0.615 / 0.333 (0.377) |
+| F1 — `hot_take` | 0.000 / 0.000 / 0.000 (0.000) | 0.333 / 0.632 / 0.000 (0.322) |
+| F1 — `vent` | 0.000 / 0.000 / 0.000 (0.000) | 0.348 / 0.000 / 0.111 (0.153) |
+| F1 — `question` | 0.533 / 0.533 / 0.522 (0.529) | 0.455 / 0.667 / 0.400 (0.507) |
+| Accuracy spread across seeds | 0.029 | 0.324 |
+
+Confusion matrix after (seed 42):
+
+| true \ predicted | analysis | hot_take | vent | question |
+|---|---|---|---|---|
+| **analysis** | 1 | 1 | 4 | 2 |
+| **hot_take** | 0 | 2 | 3 | 3 |
+| **vent** | 2 | 0 | 4 | 0 |
+| **question** | 0 | 1 | 6 | 5 |
+
+**Did it help, and how do I know:** Partly, and not on any of my targets. No
+verdict changed: criteria 1, 2 and 3 are MISSED before and after, 4 is MET, 5 is
+not tested.
+
+What it did fix: the model no longer guesses one label. Before, `hot_take` and
+`vent` had F1 0.000 on every seed; after, `hot_take` is above 0 on two seeds
+(0.333 and 0.632) and macro F1 roughly doubled (mean 0.169 to 0.339). On seed 7
+it also came close to criterion 2 on two labels (`analysis` 0.615, `question`
+0.667).
+
+What it did not fix: accuracy. The mean went from 0.372 to 0.402, which is
+inside the noise, and it got worse on two of three seeds (seed 42: 0.382 to
+0.353; seed 2024: 0.353 to 0.265). The accuracy spread across seeds went from
+0.029 to 0.324. That does not mean the model got less stable: the Before spread
+was small only because the model gave nearly the same answer every time
+(always `question`), so its accuracy was just the share of `question` in the test
+split. Once it predicts all four labels, the 34-post test split (6 `vent`
+posts, 8 each of `analysis` and `hot_take`) is too small for a stable number: one
+post moves accuracy by about 3 points. So I can say class weighting stopped the
+collapse; I cannot say it improved the model's accuracy.
+
+### Confidence check (stretch)
+
+The notebook records how sure the model was about each guess, split into the
+most and least confident thirds of the test posts (11 posts per third).
+Accuracy on the most confident third vs. the least confident third:
+
+| Run | Seed 42 | Seed 7 | Seed 2024 |
+|---|---|---|---|
+| Before: most / least confident | 0.636 / 0.182 | 0.727 / 0.182 | 0.636 / 0.182 |
+| After: most / least confident | 0.455 / 0.455 | 0.636 / 0.273 | 0.455 / 0.182 |
+
+Confident predictions were right more often than unsure ones on five of six
+runs; the exception is After seed 42, where the two thirds tied at 0.455. The
+signal is weak, though: with 11 posts per third, one post is 9 points, and the
+average confidence when right and when wrong is nearly the same (After seed 42:
+0.274 vs. 0.275; Before seed 42: 0.347 vs. 0.338). The model is rarely sure
+about anything (a four-way guess is 0.25).
+
+### Per-label error write-up (stretch)
+
+The worst label after the change is `vent` (F1 0.348, 0.000 and 0.111; mean
+0.153). It is confused with `question` in both directions, and the direction
+changes with the seed:
+
+- Seed 42: 6 real `question` posts were called `vent`, and 0 real `vent` posts
+  were called `question`. `analysis` (4) and `hot_take` (3) were also called
+  `vent`, so on this seed `vent` is where uncertain posts landed.
+- Seed 7: 4 of 6 real `vent` posts were called `question`, and 2 `hot_take`.
+- Seed 2024: 4 of 6 real `vent` posts were called `question`, and 5 real
+  `question` posts were called `vent`.
+
+What the examples have in common: I did not save the model's prediction for each
+post, so I cannot list the individual misclassified posts. The evidence I do
+have is in my own labels. In my review queue, 6 posts I labelled `question` carry
+the note "(also venting)", and my labels for `vent` posts include ones that ask
+something at the end ("asks at the end but the point is feeling"). My README rule
+is that `question` asks for help with the author's own situation and `vent` is a
+post whose point is a feeling, but many career posts do both. If I labelled that
+boundary by judgment call, a model trained on 157 posts has little to separate
+them with.
 
 
 
