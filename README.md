@@ -471,9 +471,14 @@ from about 1.39 to 1.29 over three epochs, and 1.386 (ln 4) is the loss of
 guessing the four labels equally, so it never left chance level; (3) accuracy
 is stable across seeds (spread 0.029) and seeds 42 and 7 give identical
 numbers, so this is not one unlucky split. The model-versus-labels question is
-decided by the agreement report below: [fill in after adjudication: how many of
-the 9 disagreements are pile (a), and what that says about whether my own labels
-were applied consistently].
+decided by the agreement report below: 6 of the 9 disagreements are pile (a) (a
+rule covered it and I applied it loosely) and 3 are pile (c). All six pile (a)
+cases are on the `analysis` boundary: I under-called `analysis` on three posts
+and over-called it on three. That is direct evidence that I applied the
+`analysis` rule inconsistently across 30 posts, so some of the model's trouble
+with `analysis` may come from my labels and not only from the model. It does
+not explain the collapse to `question`, since none of the 30 staff posts are
+`question` and the staff set uses a different taxonomy.
 
 
 
