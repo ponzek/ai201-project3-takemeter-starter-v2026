@@ -6,13 +6,13 @@
   "used_definitions": true,
   "scores": {
     "n": 34,
-    "accuracy": 0.47058823529411764,
-    "f1_macro": 0.3510193850267379,
+    "accuracy": 0.23529411764705882,
+    "f1_macro": 0.1,
     "per_label": {
       "analysis": {
-        "precision": 0.3333333333333333,
-        "recall": 0.375,
-        "f1": 0.35294117647058826,
+        "precision": 0.25,
+        "recall": 1.0,
+        "f1": 0.4,
         "support": 8
       },
       "hot_take": {
@@ -22,15 +22,15 @@
         "support": 8
       },
       "question": {
-        "precision": 0.55,
-        "recall": 0.9166666666666666,
-        "f1": 0.6874999999999999,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
         "support": 12
       },
       "vent": {
-        "precision": 0.4,
-        "recall": 0.3333333333333333,
-        "f1": 0.3636363636363636,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
         "support": 6
       }
     }
@@ -39,32 +39,32 @@
     {
       "text": "28M with Amazon offer: Stay Remote in NYC ($200k) or Relocate to Seattle for Amazon ($280k)?\n\nCurrently 28, single, living in NYC as a remote SWE making $200k TC with good WLB, job security, and a small group of friends. 6 years of experience. Got an offer for Amazon Seattle at ~$280k TC (team strictly in Seattle, down-leveled to mid level). Is the comp and resume boost worth it? Has anyone in a similar position made a move like this before?\n I'll note that I applied to lots of other mid-to-big tech companies, even with referrals, but almost all resume rejected me. So I am a bit worried about my future prospects.",
       "gold": "hot_take",
-      "predicted": "question"
+      "predicted": "analysis"
     },
     {
       "text": "It is trivial to catch people cheating now, please don't cheat\n\nI work for a full remote company that pays great, like 200K+ cash comp. Recently the number of people that try to use int*rviewc*der or other tools to pass has risen.\n Thing is, these tools don't even work anymore.\n 1.I ask candidate to share entire desktop on zoom.\n  I ask them to go to zoom settings -> screen share -> advanced.\n\n In screen capture mode, I ask them to select Advanced Capture Without Window Filtering\n\n  And then the cheating UI would suddenly pop up for some candidates. I thank them for their time but tell them our company policy on cheating, and drop off the call.\n Worst part? Our question isn't even a leetcode hard, we don't expect perfection and you can pass even without solving everything. We care more about communication than writing perfect code.\n So just a tip to candidates out there, this is how you can easily get caught. Don't cheat.",
       "gold": "analysis",
-      "predicted": "vent"
+      "predicted": "analysis"
     },
     {
       "text": "Can we stop pretending that hiring is based on how capable someone is?\n\nI have seen it over and over again. If someone is a \u201cbuddy\u201d of the hiring team they have a leg up over everyone else regardless of skill Also more and more teams are completely homogeneous\u2026 you will not get hired unless you are from the same background as the hiring team and the leaders\n Personally at my company there was a team hiring and the manager was saying they could not find the right candidate. Then a few weeks later hired someone who literally had the same name as them which is foreign name and not that popular in the US and that team literally had 3 people with the same name.\n So please don\u2019t feel so bad if not selected cause I have seen it happen over and over again and it\u2019s not something any of us can help.",
       "gold": "analysis",
-      "predicted": "question"
+      "predicted": "analysis"
     },
     {
       "text": "Can I leverage a job I just started to negotiate another offer?\n\nI recently started a new job at Company A and looking for some advice on how to handle another offer.\n I applied to Company B before starting at Company A. The process with B continued afterward, I completed the loop, and recently received a verbal offer.\n Originally B was considering me for the same level I\u2019m currently at at A. I asked to be evaluated for the next level based on the scope/level I had at my previous company, went through the additional process, and got the up-level.\n Comp-wise, B is roughly in line with A overall. B has a higher base and better long-term compensation, but year 1 is slightly lower because A gave me a very large sign-on bonus. B would also require relocation.\n The complication is that throughout the interview process, Company B was under the impression I was still at my previous employer. My recent move to Company A never came up, and nobody directly asked about my current employment situation, so I never mentioned it. Most of the interviews were centered around experience from my previous company.\n During the verbal offer conversation, the recruiter said there isn\u2019t much room to increase the offer unless I can provide documentation supporting higher current compensation or another competing package.\n I mentioned that my current compensation is around X, and the recruiter asked me to provide documentation. A significant portion of that compensation is the sign-on bonus from Company A that I\u2019d be giving up by leaving so soon.\n My questions are:\n Is it reasonable to use the offer letter from Company A as documentation of my current compensation, even though I already accepted it and have only been there about a month?\n Since Company B didn\u2019t know I had already moved to Company A, does bringing this up now look shady or create a risk of the verbal offer being rescinded?\n If you were in this situation, how would you explain the change to the recruiter before providing the documentation? Would you even do it at all? \n TLDR: I started Company A about a month ago while Company B\u2019s interview process was already underway. B never knew I had switched jobs and thought I was still at my previous company. I now have a verbal offer from B, but it\u2019s slightly below my current comp because I\u2019d be giving up a large sign-on at A. Recruiter said comp won\u2019t change without documentation of higher current pay. Can I use my accepted Company A offer/current comp as leverage, and does revealing the job change now risk looking shady or getting the offer pulled?",
       "gold": "question",
-      "predicted": "question"
+      "predicted": "analysis"
     },
     {
       "text": "Is becoming a doctor actually easier than breaking into tech as a new grad?\n\nHi, I\u2019m a new CS grad from a T10 school and I\u2019ve been struggling to land a tech job.\n I keep hearing that the med school and becoming doctor path is actually easier than breaking into tech right now.\n Is that actually true? If I keep having no luck in CS, should I consider med school instead? What have your experiences been?",
       "gold": "hot_take",
-      "predicted": "question"
+      "predicted": "analysis"
     },
     {
       "text": "How do I finalise role switch?\n\nAround May this year our project had a lot of movement/changes and as a part of this a BA spot opened up. I asked our Delivery Manager to shadow and switch in the future, but since this situation occurred, I was put on the spot and changed within a week (from QA).\n While our DM was present I asked for an official role change around September, after showing I handle the role well. He initiated the process with Ops/Product people, but there was a small problem with my country of residence (doesn\u2019t block anything now, it\u2019s a matter of \u201cwhat if in the future\u201d). As September ended our DM moved projects, passing the case to the new DM, but it looks like it\u2019s ping-ponged between people. \n With the review period coming closer and closer I\u2019m afraid due to their negligence I will be judged for previous role or I\u2019ll miss out on pay raise. How can I subtly get the people to finalise it without acting negatively? Weekly chasing doesn\u2019t seem to get my any closer\u2026",
       "gold": "analysis",
-      "predicted": "question"
+      "predicted": "analysis"
     },
     {
       "text": "Recently I started a new job where using AI agents is not allowed and it's sooo refreshing\n\nSeriously, for the past week and a half I have been writing 95+% of the lines by hand. Craft code lol. It's so refreshing, I understand everything that's going on, my head does not feel overloaded with hundreds of different things going on at the same time. Features are not rushed but thought through and we as devs take full responsibility of what we ship.\n It is a fintech that due to the regulatory environment cannot allow AI agents to access the code. We can use AI as you'd use Google - ask questions, brainstorm approaches, debug error codes, but we can't copy the code itself to the chat window. There would need to be an agent set up that doesn't leak the code. I am aware that this part is a solved problem and such solutions exist, it's just a case of the corp being slow with negotiating and signing the contract. \n One thing though that I actually miss about using AI agents is generating test scenarios, I enjoyed that part quite a bit.",
@@ -74,37 +74,37 @@
     {
       "text": "Did any of you pivot out of web dev into embedded/systems programming?\n\nI'm a backend engineer highly motivated to pivot out into something more technical and interesting like embedded/systems programming. \n I've been spending my free time learning C++ and studying operating systems. I know that the best (and only, I guess) way to showcase my capabilities in these domains, since I don't get to do it at work, is to list personal projects on my resume.\n This feels awkward though, having professional experience yet trying to highlight little personal projects I've done.\n For anyone who has done this successfully, I'd really appreciate any advice you might have.",
       "gold": "question",
-      "predicted": "question"
+      "predicted": "analysis"
     },
     {
       "text": "Anthropic saying coders should transition to electricians and nurses\n\nThey released a new economic report \n Link: https://x.com/anthropicai/status/2097679796687769689?s=46\n Relevant line: \u201cIn our substantial and extreme scenarios, knowledge workers may see a lot of automation and displacement. At the individual level, it means coders and call service center agents may have to switch to jobs like electrician and nurse, which are less exposed to AI.\u201d\n Im tired boss\u2026",
       "gold": "vent",
-      "predicted": "vent"
+      "predicted": "analysis"
     },
     {
       "text": "What to expect from Canada as a Software Engineer?\n\nHi \ud83d\udd96\n I live in Berlin, Germany. As a software engineer with experience, you get: <85k - local companies 85k - 100k - international companies 100k+ - big tech as a base (sometimes the only) salary.\n You pay 40% in taxes, which includes medical insurance, retirement and unemployment benefits. Per child, you get 255 Euros monthly of a child pay. You usually get 25-30 calendar days of vacation (this is separate of you getting sick and public holidays). There is free public daycare and free public schools. The universities are around 500 Euros per semester, including insurance and public transportation ticket.\n How is it in Canada? Specifically for somebody who's is not an overachiever and doesn't want to work for big tech. I'm also interested in rents and general cost and quality of living.",
       "gold": "question",
-      "predicted": "question"
+      "predicted": "analysis"
     },
     {
       "text": "I feel like you have to be \u201camazing\u201d to make a living in CS. You can\u2019t just be average. It\u2019s too freaking competitive. Even if you\u2019re a genius. There are thousands of other geniuses.\n\nLike, you have to be amazing at Leetcode. Amazing projects. Multiple internships. Stellar GPA. Etc. And this is just the bare minimum. All so you can compete with all the other CS prodigies.",
       "gold": "hot_take",
-      "predicted": "question"
+      "predicted": "analysis"
     },
     {
       "text": "Isn't the future already here?\n\nMaybe I live in some kind of Reddit bubble but I'm under the impression that most of IT companies either already write and review ~100% of their code with Claude Code or will start doing it during next couple of months. I asked my programmer friends from few different companies and all of them say the same thing, they just prompt to AI. It feels like nobody writes code by hand anymore. It's all about overseeing AI that handles code and Jira tickets.\n This got me thinking, how much worse can it realistically get? If AI is supposed to take our jobs, shouldn't it do it by now?",
       "gold": "hot_take",
-      "predicted": "question"
+      "predicted": "analysis"
     },
     {
       "text": "Doesn\u2019t AI make software engineers more valuable?\n\nBefore AI, if you wanted a website or application you would need a team of professionals.\n Now a single developer can make a website or application faster by themselves. \n Doesn\u2019t that make each developer more valuable, not less?",
       "gold": "question",
-      "predicted": "question"
+      "predicted": "analysis"
     },
     {
       "text": "Will probably be laid off soon\n\nI\u2019ve got 2 months of experience at a small robotics company. My boss recently pulled me aside and told me the budget for my role will run out by the end of the year and made it clear i\u2019ll likely be laid off. I just graduated college and this is my only job experience. The job primarily uses C++.\n Since i\u2019m new to industry, i\u2019m not sure what to make of this. I know that I should start applying again, but will putting this full time work experience on my resume be a negative signal?",
       "gold": "question",
-      "predicted": "question"
+      "predicted": "analysis"
     },
     {
       "text": "My feedback on 6 months full AI development\n\nI work in company of 12 people and last 6 months we're been developing 100% with AI. What I notice is:\n - Good developers have improved development speed for at least x5.\n - Bad developers are still bad developers. They introduce a lot of bugs with AI, missed deadlines, bad code, bad functionalities and failed projects.\n - Developers spend now their time with collecting requirements, making product, testing more, deploying, architecting, but they are still in need. This can not be replaced with AI at this point for mid size project.\n What's your guys experience?\n Edit: Seems like AI bots have taken over Reddit as downvoting real life situation and upvoting doom comments do not make sense at all.",
@@ -114,17 +114,17 @@
     {
       "text": "Do you think it's realistic to break into the IT market without a Computer Science degree?\n\nHi everyone,\n I hold a Bachelor's degree in Mechanical Engineering and a Master's in Mechatronics Engineering. I graduated a year ago and have been working in my field, but my plan has always been to eventually transition into IT I've been learning the basics of programming since high school.\n However, given current market trends and the rise of AI, junior-level development roles seem to be tougher to land, with fewer entry-level positions available and companies primarily hiring CS graduates.\n Do you think I still have a realistic chance of finding a developer role, or another IT position, through self-study with my engineering background? Which areas would be worth targeting?",
       "gold": "question",
-      "predicted": "question"
+      "predicted": "analysis"
     },
     {
       "text": "Picking my GF over my career\n\nHere's a situation that doesn't really have an answer, but I'm interested in hearing other people's perspectives. I promise I'm on the right subreddit lol.\n I'm a Canada/US dual citizen SWE (UofT grad) with 2yoe at medium sized canadian company, 110k tc. I work remotely but live on my own in Toronto.\n Logical career move is to move to the US, already a citizen so I have a huge advantage. But my long term GF of 7 years can't reasonably move there since she's a lawyer (making more than me) and we are very happy together and intend to get married within the next 1-2 years.\n Leaving my GF for a higher salary is unimaginable, but I still can't help but feel sad about missed potential. I know there's no hard and fast answer here, but feel free to give your opinions or advice, thank you!\n Edit: I maybe wasn't clear on this - This isn't something I'm still deciding on (ie should I leave my GF or not). I've already made my decision, I won't leave this relationship for the higher salary. I've definitely found the one. I just sometimes feel sad about the fact that I could be paid way more for the hours I put in, especially since I'm already a US citizen. My request for \"advice\" was moreso targeted to people in similary situations who maybe picked up remote contracting from US companies or something like that.\n Edit 2: Why are we not married yet? Family issues, my brother is getting married this year and her sister is getting married next year, prior to now both of us weren't feeling too financially stable. I plan to propose next year ish.",
       "gold": "question",
-      "predicted": "question"
+      "predicted": "vent"
     },
     {
       "text": "JPMC FAST Internship\n\nHello all,\n I have an interview for the FAST internship at JPMORGAN. It had an analytics track and data science track which I\u2019m interested in. After applying I received an email from a recruiter and I have an interview. I was wondering if anybody know how this interview is conducted and what type of questions are asked",
       "gold": "question",
-      "predicted": "question"
+      "predicted": "analysis"
     },
     {
       "text": "Hiring a Philosophy major over a CS major because the Philosophy major has a GitHub of personal projects whereas the CS major has a GitHub of school projects\n\nWhat are your guys thoughts on this? Found this on AskReddit, by user ExternalAstronaut794\n Unconventional, yet one of the best hire's OP made. If true, makes me feel like I can vibe code my way into CS as an EE grad with 0 proper software engineering knowledge (I think its nearly impossible tbh though just extrapolating) \n  I'm a software engineer with nearly 20 years experience, work in enterprise tech, have been on a lot of hiring panels, and I literally do not give a fuck what your major was - just that you HAVE a bachelors degree. Completing any accredited bachelors degree means you have learned how to meet strict deadlines, multitask, and YOU HAVE LEARNED HOW TO LEARN ON YOUR OWN. No degrees are obtained just by attending classes, you have to spend significant amounts of time figuring shit out on your own with the textbook.\n If I have two candidates that are brand new graduates and one has a comp sci degree and one has a philosophy degree, but the comp sci graduate only has school projects in their portfolio while the philosophy major has a github with projects they've developed on their own because they developed an interest in coding and self-taught... I'm going with the philosophy major.\n And that's a true example. Still one of the best hires I ever made.",
@@ -134,7 +134,7 @@
     {
       "text": "First time getting PIP ed\n\nHello, new grad from college here , I was in my role for a year and 3 months and I was told I\u2019m not meeting expectations. I was given the options to either take a 40k severance and leave now or Enter PIP and if I fail I get 9k\n What\u2019s the best way to make a decision given these circumstances, I feel like my career ended when I had just started and I\u2019ve never been in any scenario like this so I don\u2019t know what to do. I know job market is not the best right now either but I have to make a decision in 5 days.\n Please let me know what you think about this situation and if you have any advice or suggestions on how to proceed.\n PIP period is a month and half with 3 projects, two of which I\u2019ve never done anything on. I was explicitly told I\u2019m not allowed any help from anyone else and I\u2019m expected to be independent.\n I\u2019m mentally crushed but I\u2019m especially worried that it will look horrible on my resume to have left a job this early. and idk maybe job market is so bad that\u2019s it\u2019s worth it to try to take a chance to keep the job.",
       "gold": "question",
-      "predicted": "question"
+      "predicted": "analysis"
     },
     {
       "text": "AI is revolutionizing software by making it worse\n\nEveryone is using it. Almost no one is writing code manually anymore. It's increasing productivity by orders of magnitude.\n And there's so many bugs in the code. Every update is worse across all kinds of softwares.\n SWEs and researchers love it tho cuz it make their lives easier. At least for some.\n Interestingly, software getting worse no longer matters anymore because the monopoly in tech is so well entrenched, no matter how shitty the product gets, customers don't really have a choice. I think tech is now a firmly mature industry like civil engineering or mechanical engineering",
@@ -144,7 +144,7 @@
     {
       "text": "Congrats we set a new low\n\nHad an interview with hiring manager, was decent I'd say. Until at the end:\n \"what are your expectations for salary.\" My go to: \"I am open to the range provided\"\n Then he hits me with a 'how much do you make right now?'\n \"right now?\"\n This guy said \"yes\".\n I said I am not comfortable disclosing that. He said it's fine. Man was somehow hurt. Didn't properly responded to any of my questions at the end. \n In over a decade, no hiring manager has ever asked me how much I currently make.",
       "gold": "vent",
-      "predicted": "question"
+      "predicted": "analysis"
     },
     {
       "text": "I joined Google and I\u2019m really disappointed\n\nBefore I start, I just want to make it clear that yes I am grateful for my job. I do know that the tech industry has so many layoffs right now and many people would do a lot to be in my position. This is not a lack of gratitude, it\u2019s me sharing sincere feelings with the hope that I can get over them. \n Google is probably a dream company for many people. It certainly was for me. For context, I\u2019ve worked at 3 tech companies before, one of which was big tech. I\u2019m in a slightly technical program management role, mid-career, and have been good at delivering in the roles I\u2019ve been in. I\u2019ve always (for the 10yrs of my entire career) wanted to work for Google. I\u2019d always assumed it had the smartest people in the industry that were kind, and had the best products in the industry, which meant the machine internally must have been very good. I\u2019ve just passed probation and here\u2019s what I\u2019ve found:\n  Let\u2019s start with the confusing, uninspiring onboarding that took 2 weeks to just start. As in, I was given 2 weeks to set up my credentials (a 15mins call with the tech team that happened on my 2nd day). I didn\u2019t know what to do with the rest of that time so I read up on random documents I could find. Eventually I was given an onboarding checklist with some broken links and some outdated docs as well. About a month later I received an invitation to the actual \u201cWelcome to Google\u201d orientation where I got to meet some other people who were also onboarding. Some of them had been waiting for this session for more than 2 months! We got a notebook and a pen during the session. Later received emails with different Noogler onboarding tracks. It honestly felt so disorganised and unthoughtful. Before you ask, I\u2019ve met my manager, he\u2019s a nice guy and all. But when I asked him things about the team, the role, the tools, an uncomfortable number of the answers were \u201cdon\u2019t worry about that for now\u201d which felt dwarfing to how eager I was to get orientated. \n\n Most disappointingly, the people are not as smart and/or as rigorous as I\u2019d imagined they were. I don\u2019t mean offence to anyone, but some things really need to be called out. We have a guy in our team who needs to be told exactly what to do and how, otherwise he just malfunctions. I got the shock of my life when I showed him one of the documents he was working with had broken links we needed to update. He updated the one link we looked at and sent the document on with 5 other broken links. Surely an L4 should be able to get himself to look through a document and update it without further prompting? We have another who everyone complains about because of his attitude and inability to deliver work. His manager literally told me he is a difficult person to manage after I had an incident with him. And yet, he\u2019s still here. And another guy who\u2019s just incredibly aloof. The kind to run fix problems that don\u2019t exist because he misread the doc on the problem he\u2019s actually meant to be working on. And no, I\u2019m not being hyper critical or petty, I can appreciate we all make mistakes, these are examples of patterns of lack of attention to detail, lack of initiative and overall very low standard of work. \n\n What exacerbates the frustration above is how inflated these same people seem to be about just how smart and impactful they are. When you speak to some of these people, they can\u2019t perform basic deductive reasoning (context: we are a data science adjacent team, not as technical, but analysis of insights is important), but the way they speak about themselves is incredible. They talk about how great the company is and how incompatible the perks are to everything else in the industry. As someone who\u2019s been around the industry, it\u2019s really not THAT great :-/ A lot of people here are highly tenured and I realised just how little they know about what\u2019s going on outside the proverbial Google walls.\n\n Too many people fighting for relevance, but don\u2019t have the creativity or experience to solve issues. When you spot a problem or gap, you\u2019ll get told that it\u2019s known and owned by someone, has been for months or in some cases years, but you don\u2019t have to worry about collaborating with them to fix it. Even when the fix is super simple (again, experience in other companies gives you a problem solving arsenal) and your own work relies on the issue being fixed. The number of times I\u2019ve pointed to a process and data that\u2019s incorrect or inefficient and been told someone would get to it eventually is scary. \n\n And why do the slides and documents look like that?? Like there are no designers or corporate branding folks here! Consistently the most cluttered, disorganised documents I\u2019ve ever seen. I know the most important thing is the information but does everyone just not care about the presentation?? I attended a meeting for a VP which had different presenters from the team presenting different sections. I kid you not, each section had a different theme, look-and-feel, style, whatever you want to call it. In one deck for one meeting. To me, \u201cbest\u201d in this case looks like one standardised deck that\u2019s easy to read. Am I crazy for expecting that the \u201cbest\u201d company in the world operates like this?\n\n  Overall, it\u2019s been a deeply disappointing few months. I honestly feel like this is where my ambition has come to die. So far nothing is as great as I thought it would be. Except maybe the food, but that\u2019s not why I\u2019m here. I\u2019ve had the pleasure of working at companies like Facebook where I got to experience real ingenuity and the kind of people you want to have a corridor chats with because they really are wells of knowledge. Maybe my problem is that I\u2019m seeking that thrill again and the area I\u2019m in feels\u2026 stale. Or maybe I\u2019ve just outgrown the level or role and I need to be honest with myself about that. \n Of course I won\u2019t leave. To do that would be like leaving earth because I think the government is ineffective. Just expressing some thoughts. Hoping to find some Googlers who can tell me that what I\u2019m experiencing is unique to my org and there are other orgs that are\u2026 better.",
@@ -154,7 +154,7 @@
     {
       "text": "Will AI takeover Embedded/Firmware jobs as well(I want to get into a good firmware position).\n\nI've seen software get cooked but will embedded or firmware jobs(both linux and bare metal) get the same treatement. I am an intern in a firmware job and I've seen AI write C/C++ code really well. Will this field survive, should I stop learning further to get another job(I want to switch to a better embedded job). Anyone who works extensively in this field, can you tell me is investing here worth it in the future.",
       "gold": "question",
-      "predicted": "question"
+      "predicted": "analysis"
     },
     {
       "text": "Entry level doesn\u2019t exist anymore\n\nThis field is done. I\u2019ve applied to over 750 jobs in the last four months and Im still unemployed. Custom resumes, cover letters, reaching out to the hiring team on LinkedIn and still nothing. I have a BS in CS, two YOE , certs and projects.\n I decided I\u2019d apply to 1k jobs before I gave up but I might just stop now. Just made it to the final round for my second company and again I got rejected. Im just tired. \n Anyone that\u2019s considering this field, don\u2019t. Unless you have connections and can get in through that or Nepotism don\u2019t bother with this field. I feel like I wasted the last 6 years of my life and all my work, money and time has been for nothing. Fuck the people in charge for destroying this field and giving our jobs away overseas.\n Looks like a lot of you want to see my resume, here it is: https://www.reddit.com/r/resumes/s/Ah3iYYHT0s\n Thanks for the feedback, everyone. Looks like I might go back to college now.",
@@ -164,17 +164,17 @@
     {
       "text": "Accidentally switched tab during proctored OA\n\nI have been using cmd+4 as the keyboard shortcut to jump to line end in vscode because I had used vim in school for years and I'm kinda used to it (no mode switching in vscode so cmd instead of shift). \n It has become part of my muscle memory and EVERYTIME I want to jump to line end in the browser on hackerrank there is a great chance I WILL use the keybind with my reflex, so I have to make sure I have only at most 3 tabs open when I start an OA. \n This time I forgot to open a new window for the OA, ended up switching out like 5 times, although only for a split second each time, but everytime I come back immediately hackrrank tells me the activity has been recorded or something. Am I cooked?",
       "gold": "hot_take",
-      "predicted": "vent"
+      "predicted": "analysis"
     },
     {
       "text": "I think the saying \"Misery loves company\", applies to a lot of post here\n\nI am a long time lurker in this sub and I constantly read stories from professionals and students struggling to find work and I certainly agree with them, but there is more to it. To briefly describe my own story I applied to hundreds of jobs after graduating with my BS and only managed to find a contract role doing mostly IT work and then I was eventually laid off after 2 years. I then found my first software engineering role about 7 months ago after job searching again for 6 months and frankly I was only able to get this role by finally reaching outside of my bubble and asking everyone I knew for help in the job search, friends, family, and former peers I worked on projects with. Even when I secured this role, I had to leave everything behind, my friends, my family, and my hometown to move across the country for it. I am still trying to break into something that will allow me to return home even though I am paid well and get great benefits. \n I don't say this to brag, but to give others hope and ideas, sometimes you have to take a suboptimal path if it gives you time in today's market. I worked as an IT Support for 2 years while being underpaid because it was my only option. For me and I'm sure many of you, there was never any other choice than CS, I see many others warning new grads and perspective students not to pursue CS, but if its the only path you can see yourself doing it doesn't make sense to do anything else and live a life of regret. I remember when I first started CS and my professor in my C++ 101 class warned everyone that in this field everything is constantly changing and to choose CS is to more so than other majors, make a commitment to life-long learning and constant adaptability.\n To wrap this up, I am quite young in my career and I expect to get laid off soon always now and have learned you should never put trust in one company no matter how secure they may seem, build an emergency fund, and keep your resume and skill-set updated. For students still in college the single best advice I can give is try to talk to everyone, join sports, clubs, college parties, whatever you need to do to meet more people, increase your communication skills and have a higher chance of meeting someone who can get you a job, in my opinion this is the highest return activity in college even beyond getting a good GPA and an area where I focused on the wrong things. For graduates seeking to find employment my advice is the same, talk to everyone you can and don't suffer in silence alone while rapid-firing thousands of applications to the LinkedIn and Indeed void for an AI to automatically reject, while your parents and friends tell you, you aren't trying hard enough. Its funny that I find myself sounding like a War Veteran after going through so much trouble and rejection and I'm still so young in my career. My hope is that this post at least helps one person and things get better. Good luck.",
       "gold": "analysis",
-      "predicted": "vent"
+      "predicted": "analysis"
     },
     {
       "text": "is it a trap to actually want to work on weekends?\n\nI started my first job recently as a junior engineer, and I have a weird problem: I actually want to keep working on the weekends.\n I know the golden rule is to protect your WLB and log off at 5pm. It's just that I'm loving this and doing real engineering is so much more satisfying than college assignments ever were. This stuff kind of fuels me right now, and I find myself wanting to log back in on saturdays just to keep building.\n It doesn\u2019t help that my company has this great perk where they let us use the garage with a bunch of equipment after hours for our own personal projects. I\u2019m already staying late during the week just to tinker with my own stuff, so the line between \"work\" and \"hobby\" is getting super blurred lol\n The thing is, I'm worried that this is just going to be a phase and I will be at risk of burning out if I start putting in weekend hours just because I enjoy it right now. How do you ya'll handle it when you actually like what you're working on?\n Edit: typos",
       "gold": "question",
-      "predicted": "question"
+      "predicted": "analysis"
     },
     {
       "text": "Need suggestions on AI Coding round at LinkedIn\n\nHi,\n I'm in the loop for SSE role at LinkedIn and the first round is AI Coding round. A few things I've understood from here and there are -\n  Ensure detailed and unambiguous prompts.\n Review AI code and read it manually before accepting.\n  Is there anything else that might help me here? Has anyone prepared/given this round before? What kind of Rubrics are we looking at here? I know that the question is going to be a leetcode medium/hard - but how am I going to be judged?\n Can I one-shot with a long prompt? Would that be a positive signal?\n For instance, I was practicing All O One data structure leetcode - and this is the prompt I gave -\n Overall approach - Plan the following changes and ask any clarifying questions if needed. Generate a few test cases that include edge cases, and troubleshoot the approach against these cases. We will be using a dictionary with a doubly linked list to achieve all the operations in constant time. Structure of the Doubly linked list - Prev next pointers as standard. The val field would be an array/set of strings + an integer (frequency). Each node would be a bucket for a frequency. If 5 words appear 5 times, then a node with value would have those 5 strings in it's set. Dictionary design - Simple key -> value where key is a string, and value is the node in which string is present. (Here node means the bucket. So if the bucket's val's set contains that string -> the mapping b/w key and value should exist. Instructions - Init - Just instantiate the dictionary and the DLL. Inc - Check if the value is already present. If YES, get the node. Check the adjacent node (to the right). If it has a frequency of old value + 1, then move the string from the current bucket to the next bucket. If NO, create a new bucket (node) and insert to right. Dec - Check if the value is already present. If YES, get the node. Check the adjacent node (to the left). If it has a frequency of old value - 1, then move the string from the current bucket to the previous bucket. If NO, create a new bucket (node) and insert to left. If this is the first element being added, you would have to create a new node, and set the head and tail to it. Get max key - Return a random value from the tail Get min key - Return a random value from the head. The DLL is basically a sorted list of frequency buckets. Encouraged to ask questions before starting implementation to ensure correctness. Stress test the cases against the problem statement and expected output.  Would something like this pass the bar? If yes, would it be a strong hire? Post this the AI came up with some missing edge cases, and I implemented it.\n Is one-shotting considered bad? Should I break down into multiple prompts like \"Give me a double linked list structure with xyz parameters\"?\n Any suggestions are appreciated. Thanks!",
@@ -189,17 +189,17 @@
     {
       "text": "Job Choice, 160k vs 120k\n\nI have the opportunity to join a startup at a higher salary, 160k and potential to own up to 5% of the company. Previously worked for the startup CEO, like the guy, previous time I worked for him was a company that existed for 10+ years. \n However, I have a very stable job at 120k and have many guaranteed government contracts through my current company. \n Timeline:\n CEO hired me->sold business for 5mil+ after 2 years(existed for 10+ years)-> business he sold to folded(100+mil fraud)->hired by company we contracted for(current company)->CEO is trying to hire me back for his new business. \n Both are remote and have relatively relaxed work life balance. Which would you choose? I am thinking about leveraging the offer against my current company, but I am just unsure what is better to pick.\n I am a \"Senior Developer\" with 6 years of experience, but not AT FAANG or anything comparable, I am small time compared to a lot of folks past this point. So keep that in mind.\n I am leaning towards the startup, the CEO is a great person, selling to the company that folded was because of their fraud, not his fault. Otherwise, he had a successful business for more than ten years and treated me extremely well, we had a close working relationship. \n The current company is great though, my working hours are super chill and my boss and CEO are also great, close relationship with them as well. I have no ill feelings or grievances with either party. I think the money is the deciding factor, but I am worried about work past the next year for the startup.",
       "gold": "analysis",
-      "predicted": "question"
+      "predicted": "analysis"
     },
     {
       "text": "Statistical rises in PR counts in the AI era are actually nonsense\n\nLet me explain. My org heavily pressured us to get PR counts up. So, engineers did that by splitting up work into smaller items. It's actually more work --more context switching-- to review 2 smaller items than one item that is effectively the same thing.\n We all know lines of code, PR counts, tickets closed are all proxies for actual productivity that moves businesses forward, and our work is too abstract to try and measure the real desired outcome (ostensibly: higher profits, more sales, etc) so they use this very rigid quantifiers.",
       "gold": "vent",
-      "predicted": "vent"
+      "predicted": "hot_take"
     },
     {
       "text": "For those in gov contracting space, do you find it hard to leverage AI even though it is encouraged sometimes?\n\nI work in the gov contracting space and I have worked in big contracting firms, many of which provide AI tools. I just find it very difficult to actually automate the important stuff given the red tape and all the different environment restrictions. \n Like I have GFE (government furnished equipment) that is used for the actual important stuff and you can\u2019t do crap on their equipment. \n I feel like being actually max productivity is impossible in this space or maybe I\u2019m doing it wrong.",
       "gold": "hot_take",
-      "predicted": "question"
+      "predicted": "analysis"
     },
     {
       "text": "Software-development employment has continued to increase since the introduction of ChatGPT\n\nI recently completed an analysis of software-development employment trends from 2022 (when ChatGPT was introduced) to the present. This analysis, which is summarized here, found that employment has continued to increase since 2022, though unemployment rates have increased as well. It also appears that employment increases have been stronger for more seasoned developers (e.g., those aged 30-44) than those in their 20s.\n I plan to update this analysis in the coming months and years as new Current Population Survey data becomes available. The underlying code has been released under the MIT License, so you're welcome to use it as the basis for your own research.",

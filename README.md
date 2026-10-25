@@ -557,8 +557,14 @@ depend on my own tie-breaker rules ("could a reader reply that's not true?",
 "the part the post builds to wins") that the baseline never saw, while the two
 will be closest on `question`, which can be spotted from the definition alone.
 
-<!-- Paste the Baseline vs. Trained table from
-     `python baseline.py --trained results.json` here. -->
+| Measure | Baseline | Trained | Difference |
+|---|---|---|---|
+| Overall accuracy | 0.235 | 0.382 | +0.147 |
+| Macro F1 | 0.100 | 0.189 | +0.089 |
+| F1 — `analysis` | 0.400 | 0.222 | -0.178 |
+| F1 — `hot_take` | 0.000 | 0.000 | +0.000 |
+| F1 — `question` | 0.000 | 0.533 | +0.533 |
+| F1 — `vent` | 0.000 | 0.000 | +0.000 |
 
 ---
 
