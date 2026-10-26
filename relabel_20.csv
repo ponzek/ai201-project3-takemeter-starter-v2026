@@ -1,0 +1,146 @@
+n,text,my_label_now
+1,"First time getting Piped
+
+My manager told me I wasn’t meeting expectations so he piped me. The options were I leave now and get 25% of my TC (400k) as a lump sum, or stay and if I fail only get 300 dollars. I’m struggling to decide, please help.", question
+2,"Opinion: Now is exactly the time to double down on technical skills
+
+I'm a senior IC who's been in the industry for about a bit less than a decade, mostly at Google and a couple of other FAANGs prior. My superpower has always been deep technical knowledge, and I wanted to see if anyone else has similar feelings about how to thrive in a post-Al tech industry.
+ LLMs are confidently wrong 10-20% of the time, and those mistakes are only getting harder to catch to the untrained eyes. They're obviously here to stay since they enable fast, ""cheap"" code, but because of this, we're heading toward a legal industry model where a few highly sought-after experts handle the real depth, heavily augmented by Al. A bimodal distribution where the majority struggle. 
+ Managing these tools is taking all the fun out of coding. A lot of senior/staff+ ICs I talk to, myself included, are looking to hit FIRE early and exit the workforce sooner rather than later. The pipeline for training new replacements is already eroded, and long term, this is going to create a massive gap for anyone who actually has the technical depth to step up. Either that, or we achieve true AGI in the next 10-20 years, and then having a job would be the least of our worries...", hot_take
+3,"Stuck in my career. Please help.
+
+Quick context. I'm 29. I have a bit over 500K passively invested in index funds compounding at around 10%/year and maybe like 5K in savings (this is in CAD currency). Unemployment ended a few months ago which is why I'm running low on savings.
+ I'm starting my new job this month in Ontario, Canada making 75K/year (or 69K/year if my negotiation doesn't go through) and I'm not really sure where to go from here with my career and to make more money.
+ I've been a software developer for four years and I have an unrelated bachelor's degree and related diploma but I suck at software development and getting re-hired besides my new job has been near impossible (even for intern level summer jobs!) because I never took my career seriously until now. I might as well be at intern level skill-wise but without the excuse of ""I'm a university student"" to incentivize hiring at that level.
+ My highest salary was $115K as a contractor in the private sector as a support specialist which happened by luck through a recommendation of a friend of family, but at my last job with the government as a software developer, my salary was $89K/year. Unfortunately, my contract ended without being renewed because of budget cuts, and I was unemployed for just about a year.
+ During my unemployment, even with time spent prepping, I failed literally over 35 technical interviews up until I got this job at the same department through networking. Even when negotiating my salary, it dropped down to $75K/year from what it was before (and may even be lower than that).
+ Being unemployed for so long humbled me because I assumed I'd be able to find a job quickly and would get an above six figure salary automatically based on years of experience. Especially when seeing most of my colleagues maintaining their 100k-200k/year salaries and even getting bigger bonuses and promotions. Clearly, the job market disagreed with my expectations and skill level and I'm more motivated than ever to improve my skills. 
+ But a year of rejection has reasonably and justifiably nuked my confidence as a software developer. Near the end of my unemployment, I literally reached a point of desperation of even being willing to take a 50K/year job (which wasn't even guaranteed btw) working in support or even an unrelated field doing something in customer service.
+ At one point, I was considering whether to just go into sales and start doing door-to-door or just SOMETHING that could make me some form of income and potentially scale to a six figure or higher salary in a few years as long as I put in the hours and show up. But I'm not sure how much of this is just me fantasizing without having to actually test it right away or an actual grounded path. Especially since I already invested so much into being a software developer and also need money in the meantime to sustain my living costs since I don't want to liquidate my investments. But the future of tech seems bleak.
+ Given my salary for my new job, and how expensive the cost of living is in my city, living single on my salary will be basically almost paycheck to paycheck. If I end up wanting to get married and having kids in a few years, I want at least double my current salary for it to make sense for me financially.
+ So with my new job, I can work hard to get a permanent position. In 5 years, I'll automatically get back to my old salary (~90K) at my current position since it happens automatically with the government. I can also aim for the next level sooner and apply and get promoted (still quite difficult in the current job market) and the next level would jump me to 90K+/year starting salary at that new permanent government position, and I'd be getting a 3K annual raise from there. Getting an online master's degree could help with this.
+ I do need active income regardless right now, so I'm going to be working hard to learn and improve in this new position, but I just feel stuck.
+ Is sales viable as a side gig and potentially a main future source of income? Should I just lock in fully on this government job? Given how poorly I was interviewing with the private sector as a software developer, is it even worth more energy? 
+ Any suggestions would be appreciated.", question
+4,"has anyone gotten laid off from their new grad job only a month in?
+
+Hey guys! I graduated from UC Berkeley in 2025 and it took about a year for me to land a full time startup SWE job. I was laid off about a month in because the company had retroactively decided to hire people who were more experienced. They simply did not want to support my growth and mentor me. Has anything similar happened to you? Need hope core stories. It’s been tough recruiting because I no longer fit into traditional new grad cutoffs. I’m also struggling a lot with leetcode style interviews. The process has been quite discouraging :(", question
+5,"What technical/behavioral questions would you expect for this GenAI Engineer / Technical Lead role?
+
+I’m preparing for an interview for a GenAI role, and I’m trying to understand what areas I should focus on.
+ The role involves:
+  Designing and recommending GenAI/LLM solutions
+ Taking complex GenAI use cases from POC to production
+ LLM/RAG/agentic AI development
+ Microsoft OpenAI / GPT models
+ Code reviews, testing, quality gates and technical governance
+ Working directly with customers and owning delivery
+ Building reusable AI accelerators
+ Demonstrating measurable business impact from POCs
+  It sounds like they are looking for more than just someone who can build an LLM application — there seems to be a strong emphasis on architecture, production readiness, technical leadership, and customer communication.
+ For people who have interviewed for similar GenAI/AI Engineer/AI Technical Lead roles:
+ What technical questions, system-design questions, and behavioral/customer-facing questions would you expect?
+ Also, what topics would you consider essential to review before the interview?
+ I’m particularly interested in real interview experiences rather than generic lists of “LLM interview questions.”", question
+6,"Why am I working more if AI was supposed to make coding easier?
+
+I have over nine years of experience in ML and have always worked hard to keep up with the industry, but for the past year and a half, I’ve been working to the point of burnout.
+ Over the last year or so i am and most of my friends and colleagues are working 10–12 hours a day, six days a week as companies have shifted to being ""AI-first"" or ""AI-native,"" it is absolutely contrary to the claim that AI would make developers' lives easier and cut down on work time—the exact opposite is happening. 
+ This is happening partly because we constantly have to learn new AI-related development tools, and partly because management pressures us to speed things up. Of course, no one can say no; we’ve already been through one round of layoffs and are expecting another—and I don’t need to tell you how hard it is to find a job right now. So, people are desperately clinging to their jobs and grinding away late into the night, terrified of falling behind the market or underperforming and getting fired.
+ Ultimately I has a feeling this productivity boost has less to do with AI but more with a overtime. Is it like this for everyone, or did I just get unlucky?", analysis
+7,"I never found a job two years after graduating college
+
+I honestly didn't even try. I had a computer science degree... I barely applied for like 50 jobs a month before graduating and only got 1 interview, then after graduating probably like 10 max. I kept reading online how it's useless now so I just became incredibly depressed and stopped applying 1 month after graduating. I felt so discouraged, applying to jobs always gave me anxiety, and my mom kept nagging at me telling me I should have done nursing.Just been holed up in my room since hardly even leaving the house and just doom scrolling tiktok and ocasionally meeting up with random men off grindr. I feel like my resume is basically crap now.", vent
+8,"I lost my 3 years old client and everything to AI , dont know what to do in future
+
+I started as a freelancer 5 years ago and things were going great at that time. I was getting projects, clients were happy with me, and I used to get work from LinkedIn, Fiverr and Upwork. I’m rated 5 stars with all positive reviews on my profile. Now things have started to change. Since the release of the best models from ChatGPT Astra and Claude Opus, I can already see that no one really wants my services anymore. I recently lost my 3 year old client who had me on retainer for the last 3 years. I was kind of most dependent on him because we had a really great relationship and I never thought he would leave me. I developed many softwares for his company Windows apps, dashboards, websites, automation scripts and handling servers.
+ Recently after he discovered that he can maintain and add new features in all of the apps without me, he has started to have me hand over everything, the codebases, credentials and everything so that he can maintain everything himself. And I can already see that in the coming few days he will tell me that I am no longer needed anymore. Even though I still believe that AI is still not there right now, the new apps he is developing which were planned to be developed by me as future projects, he is developing them in a matter of few days which would take me at least a month or two. He showed me the apps he built and I can clearly see that there are security flaws in it, have a very wonky UI, the UI is glitching and the sizes of the elements are all uneven and not very appealing. I told him that this shouldn’t be taken as a complete app, but he thinks that he doesn’t really care because these apps are working for him and his company and he is able to make use of them.
+ And this is just one example. I am not getting anymore new projects from the platforms I used to have (LinkedIn, Upwork and Fiverr), and I assume all the clients are basically in the same boat thinking they can develop the apps themselves and they don’t need a developer. This is starting to give me sleepless nights because I am not able to get more work anymore. Not able to learn any new things because I am always thinking any new tech i learn is also replaceable by AI and what’s the use of learning them? I am now considering switching my career path and trying to discover something else, but I am lost what to even get into. I am basically the only one earning in my family right now and I keep thinking how I will pay my bills in future. 
+ Any kind of suggestion is appreciated
+ And Sorry, if my english writing skills might be bad because english is not my first language",  vent
+9,"What kind of 401k company match do you guys get?
+
+If we put in up to 5% then we get up to a 3.5% match.", question
+10,"Software engineer job postings ask for mentoring more than Kubernetes. We counted 3,518 postings to check
+
+We pulled every open posting from 81 companies' public Greenhouse boards for seven roles and counted which words actually show up. 3,518 postings in total. Some of it surprised us.
+ Software engineer postings mention mentoring more often than Kubernetes or React. Almost half of them do. Python, the most common language, comes in just below that.
+ Product manager postings say ""roadmap"" in more than 85% of cases. Jira? Seven out of 421. Marketing looks the same: Google Ads came up six times in 347 postings, while ""pipeline"" is in over half.
+ Every time we could compare the two, postings named the practice, not the tool. Observability, not Grafana. SIEM, not Splunk.
+ So if your resume is mostly a list of tools, it might be missing the words the posting actually uses.
+ Big caveat: mostly tech companies, one ATS vendor. Sales, cybersecurity, DevOps and accounting are here too: https://www.zoevera.com/resume/ats-resume-keyword-study", analysis
+11,"Is ""Forward Deployed Engineer"" a SWE role or support role?
+
+I see this position listed more than ever these days.", analysis
+12,"Sierra - Strategy AI Agent 
+
+Have an interview coming up with sierra want to learn more about the onsite and how the Interview process was. Any details or information would be amazing 🙏🏽", question
+13,"Amazon adding 30k people to already tough job market
+
+As the title sums up: I am already struggling to get a job. Why is amazon adding 30k more people to the already difficult market of unemployed personnels.", analysis
+14,"Where to go from here in my non-technical role?
+
+So I finished my CS degree last year and couldn’t find anything so I took the only job I could get, a data analyst role that does not use Python, R, or SQL. Only a tiny bit of Tableau (and it is mostly just for pulling data rather than visualizing and making reports). Most of my job is in Excel and is me having to keep track of a bunch of things and working with an analytics platform to implement new clients. The job is fine, but I’m scared of what to do from here. I don’t want to pigeonhole myself. I’m not necessarily trying to be a software engineer but I don’t want to let my technical skills go to waste, I’d still like to have a career in data analytics but in a more technical way. Am I screwed? I don’t have time outside of work to take courses or anything so idk how to advance my career after this position.", question
+15,"Completed Airbnb's Staff+ loop - here are my thoughts
+
+EDIT: Removed the links to the tagged questions since many people seem hung up on this being a potential ad. I understand, we're all tired of ads. Now back to the aim of this post, providing clarity on the process.
+ Summary
+ I just completed Airbnb's Staff+ loop recently and I want to share some thoughts about the process, the timeline, my preparation strategy and feelings about the future as I wait for the result.
+ Background
+ I have interviewed with Airbnb for a senior role about five years ago and bombed so bad in the very first round that it made me question my choice of career.
+ This time, a sr recruiter reached out to me on LinkedIn in July and I formally started the interview process soon after that. I believe Airbnb changed its loop structure (not sure if it's for all levels or for staff+ only) during this time so there was some churn on the interview structure as I was going through it.
+ Process
+ We scheduled a quick phone call to go over the process that looks like this at a high level:
+   Round Format Notes    HM Screen (1x) 60 minutes; a mid-level conversation about my work ex., preferred areas of work, team's area of work, short to mid term challenges the team faces etc. It is my belief that beyond helping Airbnb decide if they should spend time interviewing me, it also helps decide the level I should continue interviewing for.   Architecture (2x) 60 minutes; 1 system design problem, few follow up questions on scaling, edge cases, CAP theorem tradeoffs etc. What I found most interesting was that they turned out to be super engaging conversations between two staff+ engineers about interesting edge cases in the given problem and clever optimizations one could add. The actual diagramming I did was super minimal and I was told not to worry about it since the conversation is going in the ""right"" direction.   Experience Interview (1x) 60 minutes; a low-level conversation with a staff+ engineer about my work experience in general and up to two long-running, large-scale projects specifically. I always have two slide decks (with diagrams) lying around to explain two of my recent/favorite projects. It also helps that one of the large features I've shipped is publicly used by about 2 billion MAUs so I use that as a ""live"" demo, too! The conversation then went deep into all the real-life sharding issues, and operational concerns one deals with at that scale.   Coding (1x) 45 minutes; a heavily modified version of a popular problem tagged to Airbnb. I was able to quickly solve the problem, clear the edge cases and get it to run. We spent the rest of the time optimizing it for runtime and discussed how something like this could be deployed in production.   Core Values (x1) 60 minutes; a behavioral round seen through the lens of Airbnb's core values. This turned out to be more deep and personal than any interview I've taken or given. Very interesting!   Timeline
+ I had a great time managing the timeline for this loop. I really appreciated the level of flexibility Airbnb offers candidates. You get your own portal where you can track and manage your interview process with them. You can request reschedules (latest by an hour before the interview) and push interviews away as far as you need.
+ Preparation Strategy
+ Preparing for this loop felt really smooth compared to some of the loops I've given before. Something that really helped this time around was the sheer of volume of interviews I've conducted on behalf of my current employer. I got really used to the process, its stated claims, and ways to optimize those 60 minutes from one side of the desk, that it made the other side very approachable.
+ I did not prepare for my architecture interviews at all. One of my unpopular opinions is that any staff+ engineer should be able to give an architecture interview in a moment's notice. It's very simply a narrow application of something you ought to be doing everyday at work, at least ideally.
+ I always go back to this video by Jackson Gabbard as my foundation for preparing for behavioral interviews and this time was no different.
+ For the coding rounds, I focused on the Airbnb tagged questions. This was very helpful.
+ I would also recommend this sequence of processing coding problems as it really helped me:
+  Verbally explain the naive solution (e.g. to pick the Kth largest element, we could simply sort this array and pick the Kth element from the end) and why you wouldn't want to implement that.
+ Write down your proposed solution as a multi-line code comment. If possible, outline possible edge cases or rooms for optimization right away.
+ Write down the key steps of your algorithm as single line code comments and get buy-in.
+ Write actual code by expanding the single line comments into actual code.
+ Perform a dry-run and keep optimizing as much as the time allows.
+  Closing Thoughts
+ I had a great time preparing for and giving these interviews. I am optimistic about receiving a hire decision but not very sure about the leveling (I'm staff now but would like to land Sr Staff). But nothing is guaranteed until I get the news. Time to enjoy not having to grind PracHub and crack open a cold one.
+ Happy to answer your questions but please do not DM me.", analysis
+16,"Is freelancing / consulting still worth it?
+
+Full-stack dev here. I have a full time job but I’m thinking about picking up side projects. Thing is, I’m not sure if it still makes sense for consultancy-level pay. On the other hand I’m paying for a pretty heavy LLM setup and honestly I’m not using half of it at work, so it feels like I could get through a lot more work than I could a couple years ago.
+ So a few questions for people actually doing this:
+  Are there still enough real projects on Upwork / freelancermap / Malt etc.
+ In what ways has (if any) AI changed client interaction?
+ Has AI changed how you price projects?", question
+17,"UPDATE: Head of Engineering Lied About PIP
+
+I'm still in disbelief. Losing my last job ended up being a blessing for me.
+ I managed to get some good severance, and collected unemployment. Applied to 100+ jobs, had a good 8+ interview loops scheduled and just landed another job.
+ I went through the interview loop at 3 companies, getting rejected from two of them but landing the third.
+ Ended up getting a better job, with a higher TC, better name recognition with better career opportunities.
+ Weeks ago I was honestly completely despondent. I've sat at my desk and cried multiple times. The stories I read online of people applying for hundreds of jobs, no interviews and being unemployed for over a year terrified me. I thought my career was almost over.
+ I hope this serves as motivation for someone that losing your job isn't always bad. Sometimes it's exactly what you need. If my stupid ass can get a better job, I'm sure you can too. 
+ It's okay to be scared for the interview and feel unprepared. Screw it, just do it anyways. There's almost nothing to lose, if you bomb it there's always next time.
+ Aside: I learned a valuable personal lesson. When I was studying for the final round interview for my last job that let me go, my grandmother was in the hospital and not doing well.
+ I pushed off going to see her until the day before my interview. I was then told she didn't have much time left. When I finally went to see her, she wasn't able to communicate with me. I ended up sleeping on the floor in front of her bed until she ultimately passed away.
+ I wasted the last week I could have had with my grandmother for a piece of shit job that treated me like trash and threw me away like I was nothing.
+ I'll probably never get over that mistake, but I hope other people don't make the same mistake as me. 
+ A job is a job, they don't actually care about you. You can always get another job, you can't always get back some moments in your life.", vent
+18,"Do you all know what a Union is? Honest question.
+
+Honest question. Do you all know what a union is? You do know that you have the legal right in the USA and the vast majority of Europe to my understanding to make one right? Like you do know what a union is? Like you have heard of the idea that all workers in a union stick together and if one is unfairly fired the rest don’t do work to make the company not make money? It’s called a strike. You have heard of this? Here I’ll put it into a post for the subreddit so you can understand:
+ Hey guys, I am just starting to study as a Car Assembly Engineer at the Ford Motorcarriage Company here in 1912. And golly gee, this company founded by Mr. Watt and funded by Mr. Rockefeller is making a new machine that can produce 100 cars an hour all by itself! Oh wow I me gee whizz, that’s the cats pajamas that is but my entire assembly line of 200 men with 30 children to feed each can only make 110 cars an hour. Are me and 198 other men going to be laid off for the new car making super machines? If so who will feed by wife and 30 kids? Oh golly! I’m so afraid of the bread line! 
+ Like you all understand that we have done this before? The Industrial Revolution? And people fought, and people fucking DIED for you? So you can make a union? 
+ Do. You. All. Know. What. Unions. Are? It’s a very simple questions. Never seen it asked.", vent
+19,"I miss the 2010's when programmers were on top of the world.
+
+Watching the OG day in the life video of a software engineer that was made 10 years ago makes me sad. My day wasn't as chill as the girl in the video, but I remember the optimism.
+ The meetups where there were speakers where you can learn about new technology and free food/drinks and all the companies would send a representative to recruit people from said meetups. Now when you go to meetups it's a networking event for unemployed engineers and you have to buy the food and drinks.
+ I remember applying online and getting a response was so easy as a web dev in Atlanta.
+ It was a sweet spot decade where the field was growing but had little to no competition.
+ https://www.youtube.com/watch?v=rqX8PFcOpxA", vent
+20,"The way companies hire is completely fucking insane
+
+keywords. quantifications. holy shit they have no idea what theyre doing do they. are we living in the late USSR?", vent

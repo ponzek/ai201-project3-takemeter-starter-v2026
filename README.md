@@ -401,12 +401,14 @@ Seeds 42, 7 and 2024; 3 epochs, learning rate 2e-5, batch size 16, `distilbert-b
 | 2. F1 of `analysis`, `vent`, `question` | each ≥ 0.60 on every seed | 0.222 / 0.000 / 0.533 | 0.222 / 0.000 / 0.533 | 0.000 / 0.000 / 0.522 | MISSED |
 | 3. F1 of `hot_take` | ≥ 0.30 on every seed | 0.000 | 0.000 | 0.000 | MISSED |
 | 4. Largest label share of labeled posts | ≤ 60% | 34% (`question`) | 34% | 34% | MET |
-| 5. Relabel 20 posts a week later, matches | ≥ 80% | not measured | not measured | not measured | NOT TESTED |
+| 5. Relabel 20 posts a week later, matches | ≥ 80% | 65% (13/20) | 65% (13/20) | 65% (13/20) | MISSED |
 
 Criterion 4 is a property of `labels.csv`, so it is the same on every seed.
-Criterion 5 asks for a relabel of 20 of my own posts a week later; I have not
-done that relabel. The only agreement evidence I have is the staff set (70%, 30
-posts, a different taxonomy), which is a proxy and not a test of this criterion.
+Criterion 5 asks for a relabel of 20 of my own posts a week later. I relabeled
+20 random posts from `labels.csv` without looking at my first labels
+(`relabel_20.csv`) and matched 13 of 20, 65%. This is a property of my labels, so
+it is the same on every seed. The staff set (70%, 30 posts, a different
+taxonomy) points the same way.
 
 ### Confusion matrix
 
@@ -443,7 +445,7 @@ The model called 8 real `hot_take` posts `question`, while 0 real `question` pos
 | 2 | F1 of `analysis`, `vent`, `question` | each ≥ 0.60 on every seed | MISSED | `vent` is 0.000 on all three seeds, `analysis` is 0.222 / 0.222 / 0.000, and `question` is 0.533 / 0.533 / 0.522. All three labels miss on every seed. |
 | 3 | F1 of `hot_take` | ≥ 0.30 on every seed | MISSED | 0.000 on all three seeds. |
 | 4 | No label above 60% | ≤ 60% | MET | The largest label, `question`, holds 34% of the 225 posts. |
-| 5 | Relabel 20 posts, ≥ 80% match | ≥ 80% | NOT TESTED | I have not done the relabel. The staff agreement of 70% is a proxy on a different taxonomy, so I am not calling it MET or MISSED. |
+| 5 | Relabel 20 posts, ≥ 80% match | ≥ 80% | MISSED | I relabeled 20 random posts from `labels.csv` blind (`relabel_20.csv`) and matched my original label on 13 of 20, 65%. The 7 mismatches are listed under What's Still Broken. |
 
 **Diagnoses**
 
@@ -617,7 +619,7 @@ Same device (CPU) and settings as the Before log.
 | 2. F1 of `analysis`, `vent`, `question` | each ≥ 0.60 on every seed | 0.182 / 0.348 / 0.455 | 0.615 / 0.000 / 0.667 | 0.333 / 0.111 / 0.400 | MISSED |
 | 3. F1 of `hot_take` | ≥ 0.30 on every seed | 0.333 | 0.632 | 0.000 | MISSED |
 | 4. Largest label share of labeled posts | ≤ 60% | 34% (`question`) | 34% | 34% | MET |
-| 5. Relabel 20 posts a week later, matches | ≥ 80% | not measured | not measured | not measured | NOT TESTED |
+| 5. Relabel 20 posts a week later, matches | ≥ 80% | 65% (13/20) | 65% (13/20) | 65% (13/20) | MISSED |
 
 Before and after, side by side (mean of the three seeds in brackets):
 
@@ -640,7 +642,7 @@ Confusion matrix after (seed 42):
 | **vent** | 2 | 0 | 4 | 0 |
 | **question** | 0 | 1 | 6 | 5 |
 
-**Did it help?** Partly, but it did not change any verdict. Criteria 1, 2 and 3 stayed MISSED, criterion 4 stayed MET, and criterion 5 stayed NOT TESTED.
+**Did it help?** Partly, but it did not change any verdict. Criteria 1, 2 and 3 stayed MISSED, criterion 4 stayed MET, and criterion 5 stayed MISSED (65% self-agreement, which a model change cannot fix).
 
 Class weighting helped the model move away from predicting one label. Before the change, `hot_take` and `vent` had F1 0.000 on every seed. Afterward, `hot_take` scored 0.333 and 0.632 on two seeds, and mean macro F1 rose from 0.169 to 0.339. Seed 7 also passed the individual F1 target for `analysis` (0.615) and `question` (0.667), though criterion 2 requires every listed label to pass on every seed.
 
@@ -710,7 +712,7 @@ Run Log (class weights + 10 epochs), same device (CPU):
 | 2. F1 of `analysis`, `vent`, `question` | each ≥ 0.60 on every seed | 0.429 / 0.364 / 0.667 | 0.667 / 0.462 / 0.727 | 0.429 / 0.500 / 0.621 | MISSED |
 | 3. F1 of `hot_take` | ≥ 0.30 on every seed | 0.308 | 0.778 | 0.462 | MET |
 | 4. Largest label share of labeled posts | ≤ 60% | 34% (`question`) | 34% | 34% | MET |
-| 5. Relabel 20 posts a week later, matches | ≥ 80% | not measured | not measured | not measured | NOT TESTED |
+| 5. Relabel 20 posts a week later, matches | ≥ 80% | 65% (13/20) | 65% (13/20) | 65% (13/20) | MISSED |
 
 All three runs side by side (mean of three seeds in brackets):
 
@@ -785,9 +787,12 @@ at the training settings.
   "also venting".
 - **Criterion 3 (`hot_take` F1 ≥ 0.30): MET after the changes, but fragile.**
   Seed 42 clears it by 0.008 on 8 posts. It meets the stated target in these runs, but I would want a larger test split before trusting that result.
-- **Criterion 5 (relabel 20 posts, ≥ 80% match): not tested.** What I'd do: relabel
-  20 of my posts a week after the first pass, without looking at my first labels.
-  I haven't done that yet.
+- **Criterion 5 (relabel 20 posts, ≥ 80% match): MISSED, 13/20 = 65%.** I relabeled
+  20 random posts blind. The 7 mismatches: #2 analysis→hot_take, #4 vent→question,
+  #6 hot_take→analysis, #9 analysis→question, #11 question→analysis,
+  #13 question→analysis, #20 hot_take→vent (first label → relabel). Six of the 7
+  involve `analysis` or `question`, and #4 and #20 sit on the vent boundary. If I
+  disagree with my own labels 35% of the time, that noise limits what the model can learn.
 
 **The gap between what I meant my labels to capture and what the model
 learned:**
