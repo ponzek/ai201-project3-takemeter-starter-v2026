@@ -330,6 +330,21 @@ label for each, and changed 42 of them. The labels in `labels.csv` are my
 final decisions. The AI also helped draft the wording of this README and the
 reasons on criteria 2 to 5, which I asked for. The criteria numbers are mine.
 
+**Unit 6:** An AI coding assistant helped with the testing work. It ran
+`baseline.py`, `agreement.py` and the three-seed training from the command line,
+wrote `run_three_seeds.py` (including the class-weighting change), and drafted
+the README tables, the diagnosis, the confusion-matrix write-ups and "What's
+Still Broken" from the numbers in the result files. I read them and kept the
+verdicts and numbers, which come from `results_three_seeds_before.json`,
+`results_three_seeds_after.json`, `results_three_seeds_after2.json` and
+`baseline_results.json`. It suggested class weighting and then training for more
+epochs, and I agreed to both. The 30 staff labels, my nine adjudication calls and
+their piles are my own. The assistant made two mistakes that I corrected: it first
+said my label definitions were missing from the README (they were there), and it
+wrote a commit hash into the README that it had not checked. I also opened the
+TF's `staff_labels.csv` before my own labels were saved, which is noted in the
+Agreement Report.
+
 <!-- ═══════════════════════ UNIT 6 — THE TEST ═══════════════════════
 
      Don't fill these in during unit 5.
@@ -602,6 +617,23 @@ it.
 
 **What the pattern in my disagreements tells me:**
 
+Six of the nine disagreements are pile (a), and all six are on the `analysis`
+boundary: I under-called `analysis` on three posts (sleep tracking, carbon
+plates, club results since 2012) and over-called it on three (times down 3%,
+track sessions, wind on the out section). In the other three (pile (c)) the
+boundary is `hot_take` vs. `reaction`.
+
+Looking at my own reasons, the common thread is that I went by the tone of the
+post and not by the rule. For the 3% post I wrote "sense of sarcasm", for the wind
+post I wrote "felt", and for two of the pile (c) posts I wrote "the way it is
+said" and "person seemed annoyed". The staff rules ask something else: whether the
+checkable fact is load-bearing in the argument (rule 1), and whether the post is
+about a claim or about the writer (rule 2). My own README rule in Part 1 says
+"humor and sarcasm don't change the label", and my sarcasm reason on the 3% post
+breaks it. So the pattern is that I apply a written rule when I'm reading
+carefully and fall back on the feel of the post when the boundary is close, which
+is direct evidence that my own `analysis` labels are less consistent than I
+assumed.
 
 
 ---
