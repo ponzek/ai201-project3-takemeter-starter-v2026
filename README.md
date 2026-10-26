@@ -719,6 +719,79 @@ them with.
 
 
 
+### Second improvement: more epochs (stretch)
+
+**What I changed:** One more thing on top of class weighting: training for 10
+epochs instead of 3 (`python run_three_seeds.py after2`; commit `c6f3e25` has the
+results, and the change was committed before the run). Class weighting, the
+split, seeds, learning rate, batch size and model are the same as the
+class-weighted run above, so this run differs from it by epochs only. I picked 10
+once, before looking at any results, and did not try other values.
+
+**Which diagnosis pointed at it:** The training loss in the class-weighted run
+was still about 1.32 after 3 epochs, close to the 1.386 of guessing the four
+labels equally, so the model had barely trained. A two-stage classifier (my
+declared candidate) would not address that, and it would not fix the small,
+unstable test set either, so I did not build it.
+
+Run Log (class weights + 10 epochs), same device (CPU):
+
+| Criterion | Target | Seed 42 | Seed 7 | Seed 2024 | Verdict |
+|---|---|---|---|---|---|
+| 1. Overall accuracy | ≥ 0.70 on every seed | 0.500 | 0.676 | 0.529 | MISSED |
+| 2. F1 of `analysis`, `vent`, `question` | each ≥ 0.60 on every seed | 0.429 / 0.364 / 0.667 | 0.667 / 0.462 / 0.727 | 0.429 / 0.500 / 0.621 | MISSED |
+| 3. F1 of `hot_take` | ≥ 0.30 on every seed | 0.308 | 0.778 | 0.462 | MET |
+| 4. Largest label share of labeled posts | ≤ 60% | 34% (`question`) | 34% | 34% | MET |
+| 5. Relabel 20 posts a week later, matches | ≥ 80% | not measured | not measured | not measured | NOT TESTED |
+
+All three runs side by side (mean of three seeds in brackets):
+
+| Measure | Before | + class weights | + 10 epochs |
+|---|---|---|---|
+| Overall accuracy | 0.382 / 0.382 / 0.353 (0.372) | 0.353 / 0.588 / 0.265 (0.402) | 0.500 / 0.676 / 0.529 (0.568) |
+| Macro F1 | 0.189 / 0.189 / 0.130 (0.169) | 0.329 / 0.478 / 0.211 (0.339) | 0.442 / 0.658 / 0.503 (0.534) |
+| F1 — `analysis` | 0.222 / 0.222 / 0.000 (0.148) | 0.182 / 0.615 / 0.333 (0.377) | 0.429 / 0.667 / 0.429 (0.508) |
+| F1 — `hot_take` | 0.000 / 0.000 / 0.000 (0.000) | 0.333 / 0.632 / 0.000 (0.322) | 0.308 / 0.778 / 0.462 (0.516) |
+| F1 — `vent` | 0.000 / 0.000 / 0.000 (0.000) | 0.348 / 0.000 / 0.111 (0.153) | 0.364 / 0.462 / 0.500 (0.442) |
+| F1 — `question` | 0.533 / 0.533 / 0.522 (0.529) | 0.455 / 0.667 / 0.400 (0.507) | 0.667 / 0.727 / 0.621 (0.672) |
+| Accuracy spread across seeds | 0.029 | 0.324 | 0.176 |
+
+Confusion matrix, seed 42 (34 test posts):
+
+| true \ predicted | analysis | hot_take | vent | question |
+|---|---|---|---|---|
+| **analysis** | 3 | 2 | 1 | 2 |
+| **hot_take** | 1 | 2 | 1 | 4 |
+| **vent** | 2 | 0 | 2 | 2 |
+| **question** | 0 | 1 | 1 | 10 |
+
+**Did it help, and how do I know:** Yes, compared with the class-weighted run,
+which is the only thing it differs from. Mean accuracy went from 0.402 to 0.568,
+mean macro F1 from 0.339 to 0.534, and the worst seed's accuracy from 0.265 to
+0.500. Every label now has an F1 above 0 on every seed. Criterion 3 flipped from
+MISSED to MET: `hot_take` is 0.308, 0.778 and 0.462, all at or above 0.30.
+Training loss kept falling (seed 2024: about 1.39 to 0.78 over 10 epochs), which
+fits a model that was undertrained at 3 epochs.
+
+What it did not do: criteria 1 and 2 are still MISSED. Accuracy reached 0.676 on
+seed 7, just under 0.70, and was 0.500 and 0.529 on the other seeds. In
+criterion 2, `question` clears 0.60 on all three seeds (0.667, 0.727, 0.621), but
+`vent` is below 0.60 on all three (0.364, 0.462, 0.500) and `analysis` is below
+on two.
+
+How much to trust it: the test split is 34 posts, so one post moves accuracy by
+about 3 points, and seed 42's `hot_take` clears the 0.30 target by 0.008 on 8
+posts, so that MET is fragile. The accuracy spread across seeds is still 0.176,
+above the 10-point warning, so the dataset is still too small for a stable
+measure. I read the results once and did not choose the number of epochs using
+the test split, but the result is one set of three seeds, not a sweep.
+
+Confidence check for this run, accuracy on the most vs. least confident third
+(11 posts each): seed 42 0.364 / 0.545, seed 7 0.909 / 0.364, seed 2024
+0.636 / 0.455. Confident predictions were right more often on two of three seeds;
+on seed 42 the unsure third did better, so confidence is still not a reliable
+signal here.
+
 ---
 
 ## What's Still Broken
