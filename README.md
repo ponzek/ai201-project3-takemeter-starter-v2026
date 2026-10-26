@@ -798,11 +798,40 @@ signal here.
 
 <!-- For each criterion still missed: what you'd do, and why you stopped. -->
 
+I stopped here because the unit asks for one measured improvement (I made two, the
+second as a stretch item), and every remaining miss points at the data more than
+at the training settings.
 
+- **Criterion 1 (accuracy ≥ 0.70 on every seed): still MISSED.** Best result is
+  0.676 on seed 7, and 0.500 and 0.529 on the other two. What I'd do: label more
+  posts, especially `vent` (42 of 225), and use a bigger test split or repeat the
+  split more times, because with 34 test posts one post is about 3 points and the
+  spread across seeds is still 0.176.
+- **Criterion 2 (F1 ≥ 0.60 for `analysis`, `vent`, `question`): still MISSED.**
+  `question` passes on all three seeds; `vent` fails on all three (0.364, 0.462,
+  0.500) and `analysis` fails on two (0.429, 0.429). What I'd do: add about 30
+  more `vent` posts, and go back to the `analysis` boundary and apply my rule
+  once, because 6 of my 9 staff disagreements were pile (a) on that boundary, so
+  my own `analysis` labels are probably inconsistent. I'd also write a firmer rule
+  for `vent` vs. `question`, since my review notes mark 6 `question` posts as
+  "also venting".
+- **Criterion 3 (`hot_take` F1 ≥ 0.30): MET after the changes, but fragile.**
+  Seed 42 clears it by 0.008 on 8 posts. I'd want a larger test split before I
+  called it met.
+- **Criterion 5 (relabel 20 posts, ≥ 80% match): not tested.** What I'd do: relabel
+  20 of my posts a week after the first pass, without looking at my first labels.
+  I haven't done that yet.
 
 **The gap between what I meant my labels to capture and what the model
 learned:**
 <!-- Two sentences. Your confusion matrix is the evidence. -->
+I meant my labels to capture what a post is doing (arguing from a fact, asserting
+a claim, expressing a feeling, asking for help), decided by tie-breaker rules like
+"the part the post builds to wins". On seed 42 the model gets `question` right
+most often (10 of 12) and mixes up the rest, calling 4 of 8 `hot_take` posts and
+2 of 6 `vent` posts `question`. My guess is that it separates posts that ask
+something from posts that don't, and has not learned my other boundaries from
+157 training posts, but I have not tested that.
 
 
 
