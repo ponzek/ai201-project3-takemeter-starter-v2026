@@ -1,25 +1,25 @@
 # TakeMeter
 
-> ### 👋 Start here
->
-> **New to this repo? Read [RUNNING.md](RUNNING.md) first** — setup, the
-> notebook, the baseline, and what to do when something breaks.
->
-> Once `python test.py` passes:
->
-> ```bash
-> head -5 data/practice_labels.csv     # the shape your labels.csv needs
-> ```
->
-> Then open `takemeter.ipynb` **in this folder** — in VS Code, or with
-> `jupyter notebook` if you prefer. Pick the kernel: the `.venv` inside this
-> project. Run section 1, which reports the hardware you'll be training on.
-> Everything else waits until you have data.
->
-> Nothing to upload, nothing to connect, no accounts and no keys. The notebook
-> runs on your machine and writes next to your code.
->
-> **The rest of this file is your submission.** Fill it in as you go.
+**Karina Ponze | Units 5 and 6**
+
+TakeMeter is my text classifier for posts from **r/cscareerquestions**. I built it to separate supported arguments, unsupported takes, venting, and requests for personal advice. This README covers how I defined the labels, collected the posts, trained the model, and checked what it actually learned.
+
+For setup, commands, and troubleshooting, start with **[RUNNING.md](RUNNING.md)**. Run `python test.py`, then open `takemeter.ipynb` from this folder and select the project's `.venv` kernel. Run section 1 to check the device before training. The project runs locally without accounts or API keys.
+
+## Contents
+
+- [What This Does](#what-this-does)
+- [Label Taxonomy](#label-taxonomy)
+- [The Dataset](#the-dataset)
+- [The Training Run](#the-training-run)
+- [How I Used AI](#how-i-used-ai)
+- [Baseline vs. Trained](#baseline-vs-trained)
+- [Run Log — Before](#run-log--before)
+- [Verdicts and Diagnoses](#verdicts-and-diagnoses)
+- [Agreement Report](#agreement-report)
+- [The Improvement](#the-improvement)
+- [What's Still Broken](#whats-still-broken)
+- [Stretch Declarations](#stretch-declarations-written-before-building-them)
 
 ---
 
@@ -42,11 +42,7 @@
 <!-- Your community, and what your classifier sorts posts into. Three or four
      sentences. -->
 
-TakeMeter sorts posts from **r/cscareerquestions** (public, no login needed), a
-community where people discuss CS jobs, layoffs, AI and the job market. Posts
-there range from reasoned arguments backed by real numbers to venting with no
-point to bare questions. The classifier is meant to tell those kinds of post
-apart.
+I chose **r/cscareerquestions** because people there discuss CS jobs, layoffs, AI, and the job market. Some posts explain a point with specific details, some are mostly frustration, and others ask for help with a personal decision. I wanted to see whether a classifier could learn the differences I noticed while reading.
 
 **Distinctions I committed to** (each came from posts I read in a 40-post
 sample, and each is something I can point at in the text):
@@ -59,21 +55,17 @@ sample, and each is something I can point at in the text):
 3. **Reasoning or venting.** Does the post give a because/therefore, or mainly
    express a feeling (e.g. "What the fuck has happened to this profession?")?
 
-Most mod megathreads (resume advice, salary sharing) are excluded from the
-data. Two were labelled and kept by mistake.
-
-
-
+I excluded most moderator megathreads, such as resume advice and salary sharing. Two were labeled and kept by mistake.
 
 ---
 
 ## Label Taxonomy
-
 <!-- Each label: a one-sentence definition and two real examples from your
      reading. Then your decision rule for the hardest boundary.
 
      The decision rule is worth a point on its own and it's the thing most
      people leave out. Every taxonomy has a hardest boundary. Name yours. -->
+
 
 ### `analysis`
 
@@ -81,12 +73,14 @@ data. Two were labelled and kept by mistake.
 reasoning, such as a number, a timeframe, or a because/therefore.
 
 **Example 1:**
+
 > Over the last year or so i am and most of my friends and colleagues are
 > working 10-12 hours a day, six days a week as companies have shifted to being
 > "AI-first" or "AI-native," it is absolutely contrary to the claim that AI
 > would make developers' lives easier and cut down on work time
 
 **Example 2:**
+
 > I work in company of 12 people and last 6 months we're been developing 100%
 > with AI. [...] Good developers have improved development speed for at least x5.
 > Bad developers are still bad developers. They introduce a lot of bugs with AI
@@ -99,12 +93,14 @@ with no concrete detail or reasoning behind it. The answer matters to
 everyone in the field, not only to the author.
 
 **Example 1:**
+
 > People cannot communicate anymore.
 
 (from "Communication Breakdown", which asserts this as a sweeping trend and
 illustrates it with a generic Person A / Person B pattern, not a specific case)
 
 **Example 2:**
+
 > CS has gone from arguably the single best to one of the worst career path in
 > very short time and nobody has reallly came to terms with it yet. Has there
 > ever being another collapse in a field as bad and rapidly as ours?
@@ -117,12 +113,14 @@ illustrates it with a generic Person A / Person B pattern, not a specific case)
 dread), with little or no argument behind it.
 
 **Example 1:**
+
 > What the fuck has happened to this profession?
 
 (from "Company going full agentic", which describes a process then asks how to
 feel about it)
 
 **Example 2:**
+
 > i miss those old days. [...] everyone just wants speed and results and the old
 > way of doing things almost feels outdated even if it still feels so good deep
 > down.
@@ -134,31 +132,24 @@ own situation (an offer, an interview, a career move), and makes no claim of
 its own.
 
 **Example 1:**
+
 > Title - with all the layoff news, if your company did a large wave of layoffs
 > in light of "restructuring", would you begin applying elsewhere? Why or why
 > not?
 
 **Example 2:**
+
 > Say you apply for a role with Company A, didn't pass their background
 > screening for whatever reason (criminal record, drugs, etc). Have you seen
 > anyone reapply and then get hired?
 
 ### The hardest boundary
 
-**Which two labels:** `analysis` and `hot_take` (with `vent` as a close
-second)
+**Hardest pair:** `analysis` and `hot_take`, with `vent` close behind.
 
-**The decision rule I used every time:**
-If the post gives a concrete detail and uses it to support a conclusion, it's
-`analysis`, even if the tone is heated or it ends with a question. If the
-feeling is the point and the details are only backdrop, it's `vent`. If a post
-states a confident claim but offers no number, detail, or because, it's
-`hot_take`, even when the tone is calm. A claim with no support is not
-`analysis`.
+**My rule:** If a post uses a concrete detail to support a conclusion, I call it `analysis`, even if it sounds heated or ends with a question. If the feeling is the point and the details are only background, I call it `vent`. If it makes a confident claim without a supporting number, detail, or reason, I call it `hot_take`.
 
-Example of the boundary: "Why am I working more if AI was supposed to make
-coding easier?" has burnout and venting in it, but it cites hours and uses them
-to argue that the AI productivity boost is really overtime, so it's `analysis`.
+For example, “Why am I working more if AI was supposed to make coding easier?” cites working hours to question the promise of AI productivity. Under this rule, it fits `analysis`. My original cold label was `hot_take`, which I kept in the dataset. I explain that inconsistency in the hard cases below.
 
 ### A second boundary: `question` and `hot_take`
 
@@ -193,8 +184,6 @@ Single. One. I can't take it anymore." is `vent`, because nobody can reply
 done with this place." contains a claim, but it builds to "I'm so done", so it's
 also `vent`.
 
-
-
 ---
 
 ## The Dataset
@@ -202,21 +191,11 @@ also `vent`.
 <!-- Where you collected from, how you labelled, your counts, and three hard
      cases. -->
 
-**Where the posts came from:** r/cscareerquestions, public posts only. I pulled
-the public RSS feeds for hot, new, top (month), top (year) and controversial on
-14-15 October 2026, so the sample isn't all one kind of post. I removed
-moderator megathreads (resume advice, salary sharing, rant and interview
-threads) and posts that were only a news link with no text of their own.
+**Source:** Public posts from r/cscareerquestions. I collected posts through the hot, new, top (month), top (year), and controversial RSS feeds on 14-15 October 2026 to get some variety. I removed moderator megathreads and posts that were only a news link without the author's own text, apart from the two megathreads noted above.
 
-**How I labelled them:** I labelled the first 20 posts cold, with no help and
-no tools (note column: `cold`). An AI assistant pre-labelled the other 205 using
-my definitions and decision rules, and gave each a confidence of high, medium or
-low (note column: `pre-labelled by AI, confidence ...`). I reviewed the
-low-confidence rows first.
+**Labeling process:** I labeled the first 20 posts cold, without help or tools, and marked them `cold` in the note column. An AI assistant pre-labeled the other 205 using my definitions and decision rules, with high, medium, or low confidence recorded in the notes.
 
-I read every pre-labelled row and wrote a label for each one, whether I agreed
-or not. I changed 42 of the 205 AI labels (about 1 in 5). Rows are marked in the
-note column as confirmed or changed.
+I started with the low-confidence rows, then read every pre-labeled post and recorded my own decision. I changed 42 of the 205 AI labels, about 1 in 5. The note column records which labels I confirmed and which I changed.
 
 **Counts per label:**
 
@@ -231,9 +210,9 @@ note column as confirmed or changed.
 (Final counts after my review. No label is above the 70% cap.)
 
 **Three hard cases**
-
 <!-- Any post that made you pause: what it was, which two labels it could have
      been, and what you chose. These are worth more than the easy 190. -->
+
 
 **1.**
 > *The post:* "Why am I working more if AI was supposed to make coding easier?"
@@ -278,8 +257,9 @@ note column as confirmed or changed.
 post, seed 42. Trained on CPU (torch 2.14.1+cpu), as recorded in
 `results.json`. <!-- epochs, learning rate, batch size, seed -->
 
-**Anything I changed from the defaults, and why:** Nothing. I used the
-notebook defaults for the first run.
+`results.json`. 
+
+**Changes from the defaults:** None for the first run. I kept the notebook settings so I had a starting point to compare against.
 
 **Split sizes:** train 157 / val 34 / test 34 (70/15/15 of 225 posts).
 Test split per label: `analysis` 8, `hot_take` 8, `vent` 6, `question` 12.
@@ -288,7 +268,7 @@ its metrics will move a lot between seeds. <!-- train / val / test, and per-labe
 split. If a label had fewer than about 8 in test, say so — it explains a lot
 of next unit's variance. -->
 
-
+its metrics will move a lot between seeds. 
 
 ---
 
@@ -301,7 +281,7 @@ of next unit's variance. -->
      workflow and disclosing it costs you nothing. Not disclosing it is the
      problem. -->
 
-**Moment 1**
+### Moment 1: Finding a missing label
 
 - *What I asked for:* eight posts written to sit on the boundaries of my three
   labels, with the intended labels hidden, to stress-test my definitions.
@@ -310,7 +290,7 @@ of next unit's variance. -->
 - *What I changed:* I added a fourth label, `hot_take`, and wrote a decision
   rule for `analysis` versus `hot_take`.
 
-**Moment 2**
+### Moment 2: Tightening the boundaries
 
 - *What I asked for:* a second stress test of eight boundary posts, this time
   covering all four labels.
@@ -350,12 +330,14 @@ Agreement Report.
      Don't fill these in during unit 5.
      ═══════════════════════════════════════════════════════════════════ -->
 
+**README editing:** I used ChatGPT to clean up the wording, organization, and formatting of this README. It preserved the reported numbers, verdicts, original stretch declarations, and my adjudication decisions. It also flagged a mismatch between the disagreement entries and the summary: the entries had all nine marked pile (a). I corrected entries 4, 7 and 8 to pile (c), which are the piles I originally gave for them. This editing pass did not rerun the experiments or verify the repository history.
+
 ---
 
 ## Baseline vs. Trained
-
 <!-- Both models on the same posts. `python baseline.py --trained results.json`
      prints this table for you. -->
+
 
 | Measure | Baseline | Trained | Difference |
 |---|---|---|---|
@@ -373,6 +355,8 @@ Baseline: `facebook/bart-large-mnli`, zero-shot, using my definitions from
 **What I predicted before I looked:**
 <!-- Milestone 1 asks you to write this BEFORE seeing the trained numbers. A
      prediction made afterwards isn't one. -->
+
+
 My trained model will beat the zero-shot baseline most on `hot_take` and `vent`,
 because those labels depend on my own tie-breaker rules ("could a reader reply
 that's not true?", "the part the post builds to wins") that the baseline never
@@ -383,16 +367,14 @@ definition alone.
 wrong: neither model scored above 0 on `hot_take` or `vent`, and `question` was
 the label with the biggest gap, +0.533.)
 
-**What the gap actually means:**
 <!-- If the baseline matched your trained model, your fine-tuning added
      nothing — and that is a real finding, not a failure. Say it plainly. -->
-The trained model beats the baseline that used my definitions (0.382 vs. 0.235
-accuracy). That baseline predicted `analysis` for 32 of 34 posts, so it was
-mostly guessing one label. When I removed the definitions and gave it only the
-bare label names (`baseline_results_bare.json`), it scored 0.529 accuracy and
-0.433 macro F1, which is higher than my trained model. So against a fair
-baseline my fine-tuning has not yet added anything: the trained model mostly
-predicts `question` (see the confusion matrix below).
+
+**What the gap means:**
+
+My original trained model beat the baseline with definitions: 0.382 vs. 0.235 accuracy. But that baseline predicted `analysis` for 32 of 34 posts, so it was mostly repeating one label.
+
+I also tested the baseline using only the label names (`baseline_results_bare.json`). It reached 0.529 accuracy and 0.433 macro F1, both higher than my original trained model. So the first training run did not improve on the stronger baseline. Its predictions were mostly `question`, as the confusion matrix below shows.
 
 | Measure | Baseline with definitions | Baseline, bare names | Trained |
 |---|---|---|---|
@@ -403,14 +385,12 @@ predicts `question` (see the confusion matrix below).
 | F1 — `vent` | 0.000 | 0.667 | 0.000 |
 | F1 — `question` | 0.000 | 0.667 | 0.533 |
 
-
-
 ---
 
 ## Run Log — Before
-
 <!-- Five criteria across three seeds. The notebook's section 6 prints the
      spread table; the Target and Verdict columns are yours. -->
+
 
 Device: CPU (PyTorch 2.14.1+cpu), recorded in `results_three_seeds_before.json`.
 Seeds 42, 7 and 2024; 3 epochs, learning rate 2e-5, batch size 16, `distilbert-base-uncased`.
@@ -432,6 +412,7 @@ posts, a different taxonomy), which is a proxy and not a test of this criterion.
 
 <!-- ⚠️ TYPED AS A MARKDOWN TABLE. The notebook prints one ready to paste.
      An image of a matrix earns nothing. -->
+
 Seed 42 (34 test posts):
 
 | true \ predicted | analysis | hot_take | vent | question |
@@ -441,24 +422,20 @@ Seed 42 (34 test posts):
 | **vent** | 0 | 0 | 0 | 6 |
 | **question** | 0 | 0 | 0 | 12 |
 
-**My biggest off-diagonal number, and what it means:**
 <!-- Not "the model made mistakes" — WHICH boundary it didn't learn, and which
      direction. "7 real analysis posts were called hot_take and only 3 went the
      other way" is a direction, not just an error rate. -->
-8 real `hot_take` posts were called `question`, and 0 real `question` posts went
-the other way. The same is true of `analysis` (7 called `question`) and `vent`
-(6 called `question`). The model did not learn a boundary between `question` and
-the other three labels: it called 33 of 34 posts `question`, and its 0.382
-accuracy is the 13 it got right by that guess (12 `question` and 1 `analysis`).
 
+**The biggest confusion:**
 
+The model called 8 real `hot_take` posts `question`, while 0 real `question` posts went the other way. It also called 7 `analysis` posts and 6 `vent` posts `question`. On this seed, it predicted `question` for 33 of 34 posts. Its 0.382 accuracy came from getting 12 `question` posts and 1 `analysis` post right, rather than learning all four labels.
 
 ---
 
 ## Verdicts and Diagnoses
-
 <!-- MET or MISSED against LAST UNIT's target. The target has to hold across
      all three seeds, not turn up sometimes. -->
+
 
 | # | Criterion | Target | Verdict | How I decided |
 |---|---|---|---|---|
@@ -478,34 +455,21 @@ accuracy is the 13 it got right by that guess (12 `question` and 1 `analysis`).
      ⚠️ Use your agreement report as evidence. It is the only instrument you
      have that can tell a LABELLING problem from a MODEL problem, and this
      section is graded on whether you used it that way. -->
-**Criteria 1, 2 and 3 (accuracy and per-label F1).** Cause: the model did not
-learn to separate the labels at all and mostly guessed `question`. Evidence:
-(1) on seed 42 it predicted `question` for 33 of 34 test posts, and the other
-three labels each have zero or one correct; (2) training loss barely moved,
-from about 1.39 to 1.29 over three epochs, and 1.386 (ln 4) is the loss of
-guessing the four labels equally, so it never left chance level; (3) accuracy
-is stable across seeds (spread 0.029) and seeds 42 and 7 give identical
-numbers, so this is not one unlucky split. The model-versus-labels question is
-decided by the agreement report below: 6 of the 9 disagreements are pile (a) (a
-rule covered it and I applied it loosely) and 3 are pile (c). All six pile (a)
-cases are on the `analysis` boundary: I under-called `analysis` on three posts
-and over-called it on three. That is direct evidence that I applied the
-`analysis` rule inconsistently across 30 posts, so some of the model's trouble
-with `analysis` may come from my labels and not only from the model. It does
-not explain the collapse to `question`, since none of the 30 staff posts are
-`question` and the staff set uses a different taxonomy.
+**Criteria 1, 2 and 3: accuracy and per-label F1.** The clearest problem was that the model mostly guessed `question`. On seed 42, it chose that label for 33 of 34 test posts, and the other three labels had zero or one correct prediction each. Training loss moved from about 1.39 to 1.29 over three epochs, still close to 1.386 (ln 4), the loss from assigning equal probability to all four labels. That suggests the model had learned very little.
 
+The accuracy spread was only 0.029, and seeds 42 and 7 had identical scores. That small spread was not reassuring: the model was repeating nearly the same answer.
 
+My agreement report also points to a labeling problem. Six of my 9 disagreements with staff are pile (a), all on the `analysis` boundary: I under-called `analysis` on three posts and over-called it on three. The examples show that I sometimes followed tone instead of the written rule. That may explain some trouble with `analysis`, but it does not explain the collapse to `question`: the staff set uses a different taxonomy and has no `question` posts.
 
 ---
 
 ## Agreement Report
-
 <!-- Your rate against the staff set, and every disagreement adjudicated.
 
      Remember you labelled these 30 under the STAFF taxonomy in
      data/staff_taxonomy.md, not your own — so every argument below is made
      from those definitions and those decision rules. -->
+
 
 **Agreement rate:** 21 / 30 = 70%
 
@@ -519,7 +483,7 @@ it.
      of the 30 were chosen because they're genuinely ambiguous — you should be
      winning some of these. -->
 
-**Disagreements**
+### Disagreements
 
 <!-- Three lines each: the post, both labels, and who you think is right and
      why — grounded in the staff definitions you were both applying.
@@ -533,6 +497,8 @@ it.
      Pile (a) is the one that matters most for your diagnosis: if you applied a
      written rule two different ways on 30 posts, that is direct evidence about
      what you did across your own 200. -->
+
+The piles mean: **(a)** a rule covered the case but I applied it loosely; **(b)** the definitions did not cover the case; **(c)** the rule was ambiguous and my reading was defensible.
 
 **1.**
 > *The post:* "I tracked sleep against session quality for eleven weeks. Under seven hours the next day's intervals were 6-8 seconds per mile slower, every time bar one. Small sample, one runner, but it's consistent enough that I've stopped scheduling hard days after late shifts."
@@ -568,7 +534,7 @@ it.
 >
 > *My call, and why:* reaction. the way it is said “They’re just…”
 >
-> *Which pile:* (a)
+> *Which pile:* (c)
 
 **5.**
 > *The post:* "Times are down about 3% since the shoe rules changed, so obviously the shoes are the whole story and the sport has a problem."
@@ -595,7 +561,7 @@ it.
 >
 > *My call, and why:* reaction. Person seemed annoyed there was no other info on the forum
 >
-> *Which pile:* (a)
+> *Which pile:* (c)
 
 **8.**
 > *The post:* "Blew up at 20 with the pace band still in my hand like it was going to help. Rough one."
@@ -604,7 +570,7 @@ it.
 >
 > *My call, and why:* hot_take. He thought the pace band was going to push him up
 >
-> *Which pile:* (a)
+> *Which pile:* (c)
 
 **9.**
 > *The post:* "Wind was so bad on the out section I was leaning at about 20 degrees. Coming back felt like cheating."
@@ -615,26 +581,13 @@ it.
 >
 > *Which pile:* (a)
 
-**What the pattern in my disagreements tells me:**
+**What I noticed in my disagreements:**
 
-Six of the nine disagreements are pile (a), and all six are on the `analysis`
-boundary: I under-called `analysis` on three posts (sleep tracking, carbon
-plates, club results since 2012) and over-called it on three (times down 3%,
-track sessions, wind on the out section). In the other three (pile (c)) the
-boundary is `hot_take` vs. `reaction`.
+Six of the nine disagreements are pile (a), all on the `analysis` boundary. I under-called `analysis` on three posts (sleep tracking, carbon plates, and club results since 2012) and over-called it on three (times down 3%, track sessions, and wind on the out section). The other three are pile (c), all on the `hot_take` and `reaction` boundary (races more than once a month, injury threads, and blew up at 20).
 
-Looking at my own reasons, the common thread is that I went by the tone of the
-post and not by the rule. For the 3% post I wrote "sense of sarcasm", for the wind
-post I wrote "felt", and for two of the pile (c) posts I wrote "the way it is
-said" and "person seemed annoyed". The staff rules ask something else: whether the
-checkable fact is load-bearing in the argument (rule 1), and whether the post is
-about a claim or about the writer (rule 2). My own README rule in Part 1 says
-"humor and sarcasm don't change the label", and my sarcasm reason on the 3% post
-breaks it. So the pattern is that I apply a written rule when I'm reading
-carefully and fall back on the feel of the post when the boundary is close, which
-is direct evidence that my own `analysis` labels are less consistent than I
-assumed.
+The reasons I wrote show a clearer pattern: I sometimes went by how a post sounded. For the 3% post, I wrote “sense of sarcasm.” For the wind post, I wrote “felt.” Elsewhere, I wrote “the way it is said” and “person seemed annoyed.” The staff rules instead ask whether a checkable fact supports the argument and whether the post centers on a claim or the writer's reaction.
 
+My own taxonomy says humor and sarcasm do not change the label, so my sarcasm explanation shows the same consistency problem. I need to apply the written boundary more carefully instead of relying on the feeling of a post.
 
 ---
 
@@ -687,26 +640,11 @@ Confusion matrix after (seed 42):
 | **vent** | 2 | 0 | 4 | 0 |
 | **question** | 0 | 1 | 6 | 5 |
 
-**Did it help, and how do I know:** Partly, and not on any of my targets. No
-verdict changed: criteria 1, 2 and 3 are MISSED before and after, 4 is MET, 5 is
-not tested.
+**Did it help?** Partly, but it did not change any verdict. Criteria 1, 2 and 3 stayed MISSED, criterion 4 stayed MET, and criterion 5 stayed NOT TESTED.
 
-What it did fix: the model no longer guesses one label. Before, `hot_take` and
-`vent` had F1 0.000 on every seed; after, `hot_take` is above 0 on two seeds
-(0.333 and 0.632) and macro F1 roughly doubled (mean 0.169 to 0.339). On seed 7
-it also came close to criterion 2 on two labels (`analysis` 0.615, `question`
-0.667).
+Class weighting helped the model move away from predicting one label. Before the change, `hot_take` and `vent` had F1 0.000 on every seed. Afterward, `hot_take` scored 0.333 and 0.632 on two seeds, and mean macro F1 rose from 0.169 to 0.339. Seed 7 also passed the individual F1 target for `analysis` (0.615) and `question` (0.667), though criterion 2 requires every listed label to pass on every seed.
 
-What it did not fix: accuracy. The mean went from 0.372 to 0.402, which is
-inside the noise, and it got worse on two of three seeds (seed 42: 0.382 to
-0.353; seed 2024: 0.353 to 0.265). The accuracy spread across seeds went from
-0.029 to 0.324. That does not mean the model got less stable: the Before spread
-was small only because the model gave nearly the same answer every time
-(always `question`), so its accuracy was just the share of `question` in the test
-split. Once it predicts all four labels, the 34-post test split (6 `vent`
-posts, 8 each of `analysis` and `hot_take`) is too small for a stable number: one
-post moves accuracy by about 3 points. So I can say class weighting stopped the
-collapse; I cannot say it improved the model's accuracy.
+The accuracy results were mixed. Mean accuracy went from 0.372 to 0.402, but it fell on seed 42 (0.382 to 0.353) and seed 2024 (0.353 to 0.265). The spread grew from 0.029 to 0.324. The small Before spread mainly reflected repeated `question` predictions; it was not evidence of a useful, stable classifier. With only 34 test posts, one post changes accuracy by about 3 points. I can say class weighting reduced the collapse, but these runs do not establish a reliable accuracy improvement.
 
 ### Confidence check (stretch)
 
@@ -748,8 +686,6 @@ is that `question` asks for help with the author's own situation and `vent` is a
 post whose point is a feeling, but many career posts do both. If I labelled that
 boundary by judgment call, a model trained on 157 posts has little to separate
 them with.
-
-
 
 ### Second improvement: more epochs (stretch)
 
@@ -797,7 +733,7 @@ Confusion matrix, seed 42 (34 test posts):
 | **vent** | 2 | 0 | 2 | 2 |
 | **question** | 0 | 1 | 1 | 10 |
 
-**Did it help, and how do I know:** Yes, compared with the class-weighted run,
+**Did it help?** Yes, compared with the class-weighted run,
 which is the only thing it differs from. Mean accuracy went from 0.402 to 0.568,
 mean macro F1 from 0.339 to 0.534, and the worst seed's accuracy from 0.265 to
 0.500. Every label now has an F1 above 0 on every seed. Criterion 3 flipped from
@@ -805,13 +741,13 @@ MISSED to MET: `hot_take` is 0.308, 0.778 and 0.462, all at or above 0.30.
 Training loss kept falling (seed 2024: about 1.39 to 0.78 over 10 epochs), which
 fits a model that was undertrained at 3 epochs.
 
-What it did not do: criteria 1 and 2 are still MISSED. Accuracy reached 0.676 on
+**What still missed:** Criteria 1 and 2 are still MISSED. Accuracy reached 0.676 on
 seed 7, just under 0.70, and was 0.500 and 0.529 on the other seeds. In
 criterion 2, `question` clears 0.60 on all three seeds (0.667, 0.727, 0.621), but
 `vent` is below 0.60 on all three (0.364, 0.462, 0.500) and `analysis` is below
 on two.
 
-How much to trust it: the test split is 34 posts, so one post moves accuracy by
+**How much I trust it:** The test split is 34 posts, so one post moves accuracy by
 about 3 points, and seed 42's `hot_take` clears the 0.30 target by 0.008 on 8
 posts, so that MET is fragile. The accuracy spread across seeds is still 0.176,
 above the 10-point warning, so the dataset is still too small for a stable
@@ -827,8 +763,8 @@ signal here.
 ---
 
 ## What's Still Broken
-
 <!-- For each criterion still missed: what you'd do, and why you stopped. -->
+
 
 I stopped here because the unit asks for one measured improvement (I made two, the
 second as a stretch item), and every remaining miss points at the data more than
@@ -848,8 +784,7 @@ at the training settings.
   for `vent` vs. `question`, since my review notes mark 6 `question` posts as
   "also venting".
 - **Criterion 3 (`hot_take` F1 ≥ 0.30): MET after the changes, but fragile.**
-  Seed 42 clears it by 0.008 on 8 posts. I'd want a larger test split before I
-  called it met.
+  Seed 42 clears it by 0.008 on 8 posts. It meets the stated target in these runs, but I would want a larger test split before trusting that result.
 - **Criterion 5 (relabel 20 posts, ≥ 80% match): not tested.** What I'd do: relabel
   20 of my posts a week after the first pass, without looking at my first labels.
   I haven't done that yet.
@@ -857,6 +792,8 @@ at the training settings.
 **The gap between what I meant my labels to capture and what the model
 learned:**
 <!-- Two sentences. Your confusion matrix is the evidence. -->
+
+
 I meant my labels to capture what a post is doing (arguing from a fact, asserting
 a claim, expressing a feeling, asking for help), decided by tie-breaker rules like
 "the part the post builds to wins". On seed 42 the model gets `question` right
@@ -864,9 +801,6 @@ most often (10 of 12) and mixes up the rest, calling 4 of 8 `hot_take` posts and
 2 of 6 `vent` posts `question`. My guess is that it separates posts that ask
 something from posts that don't, and has not learned my other boundaries from
 157 training posts, but I have not tested that.
-
-
-
 <!-- ═════════════════════════════════════════════════════════════════════
 
      SUBMISSION CHECKLIST — unit 5
@@ -900,6 +834,7 @@ something from posts that don't, and has not learned my other boundaries from
 
      Do not delete and recreate this repository.
      ═════════════════════════════════════════════════════════════════════ -->
+
 
 ---
 
